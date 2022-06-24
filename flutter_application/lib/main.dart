@@ -55,32 +55,33 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Container(
-          height: double.infinity,
-          width: double.infinity,
-          // child: Image(
-          //   height: 20.0,
-          //   width: 20.0,
-          //   image: AssetImage("assets/images/revisable.png"),
-          // ),
-          decoration: const BoxDecoration(
-            image: DecorationImage(
+        // appBar: AppBar(
+        //   // Here we take the value from the MyHomePage object that was created by
+        //   // the App.build method, and use it to set our appbar title.
+        //   title: Text(widget.title),
+        // ),
+        body: Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
                 image: AssetImage("assets/images/background.png"),
-                fit: BoxFit.cover),
-          ),
-        ),
-      ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: _incrementCounter,
-      //   tooltip: 'Increment',
-      //   child: Icon(Icons.add),
-      // ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                new AspectRatio(
+                    aspectRatio: 4 / 3,
+                    child: new Image(
+                        image: AssetImage("assets/images/revisable.png"))),
+              ],
+            ))
+        // floatingActionButton: FloatingActionButton(
+        //   onPressed: _incrementCounter,
+        //   tooltip: 'Increment',
+        //   child: Icon(Icons.add),
+        // ), // This trailing comma makes auto-formatting nicer for build methods.
+        );
   }
 }
