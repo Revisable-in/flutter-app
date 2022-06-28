@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/Signup': (context) => Signup(),
         '/Signup1': (context) => Signup1(),
-        '/Login': (context) => Signup1(),
+        '/Login': (context) => Login(),
       },
     );
   }
@@ -90,13 +90,14 @@ class Signup extends StatelessWidget {
             Row(
               children: [
                 Container(
-                    padding: EdgeInsets.fromLTRB(0, 0, 0, 23.0),
+                    padding: EdgeInsets.fromLTRB(10, 25, 0, 23.0),
                     child: Image(
                       image: AssetImage("assets/images/flashcard.png"),
                     )),
                 Column(
                   children: [
                     Container(
+                      padding: EdgeInsets.only(right: 10),
                       child: Text(
                         "COURSE BASED FLASHCARDS",
                         style: TextStyle(
@@ -108,18 +109,20 @@ class Signup extends StatelessWidget {
                         textAlign: TextAlign.left,
                       ),
                     ),
-                    const SizedBox(
-                      width: 200.0,
+                    SizedBox(
+                      width: 225.0,
                       // padding: EdgeInsets.fromLTRB(0, 0, 0, 23.0),
-                      child: Text(
-                        "Spaced repetition to help you retain for longer.",
-                        style: TextStyle(
-                          fontFamily: "Raleway",
-                          fontSize: 12.0,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.white,
+                      child: Container(
+                        padding: EdgeInsets.only(left: 20.0),
+                        child: Text(
+                          "Spaced repetition to help you retain for longer.",
+                          style: TextStyle(
+                            fontFamily: "Raleway",
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.white,
+                          ),
                         ),
-                        textAlign: TextAlign.left,
                       ),
                     ),
                   ],
@@ -129,13 +132,14 @@ class Signup extends StatelessWidget {
             Row(
               children: [
                 Container(
-                    padding: EdgeInsets.fromLTRB(0, 0, 0, 23.0),
+                    padding: EdgeInsets.fromLTRB(10, 0, 0, 23.0),
                     child: Image(
                       image: AssetImage("assets/images/schedule.png"),
                     )),
                 Column(
                   children: [
                     Container(
+                      padding: EdgeInsets.only(right: 55),
                       child: Text(
                         "INSIGHTS & ANALYSIS",
                         style: TextStyle(
@@ -146,16 +150,19 @@ class Signup extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      width: 200.0,
+                    SizedBox(
+                      width: 225.0,
                       // padding: EdgeInsets.fromLTRB(0, 0, 0, 23.0),
-                      child: Text(
-                        "Insights which help you study smarter and more consistently.",
-                        style: TextStyle(
-                          fontFamily: "Raleway",
-                          fontSize: 12.0,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.white,
+                      child: Container(
+                        padding: EdgeInsets.only(left: 20),
+                        child: Text(
+                          "Insights which help you study smarter and more consistently.",
+                          style: TextStyle(
+                            fontFamily: "Raleway",
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
@@ -166,12 +173,14 @@ class Signup extends StatelessWidget {
             Row(
               children: [
                 Container(
+                    padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                     child: Image(
-                  image: AssetImage("assets/images/revise.png"),
-                )),
+                      image: AssetImage("assets/images/revise.png"),
+                    )),
                 Column(
                   children: [
                     Container(
+                      padding: EdgeInsets.only(right: 25),
                       child: Text(
                         "VERSATILE REVISION TOOL",
                         style: TextStyle(
@@ -183,17 +192,20 @@ class Signup extends StatelessWidget {
                         textAlign: TextAlign.left,
                       ),
                     ),
-                    const SizedBox(
-                      width: 200.0,
+                    SizedBox(
+                      width: 225.0,
 
                       // padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Text(
-                        "A tool which blends with your study patterns and builds consistency.",
-                        style: TextStyle(
-                          fontFamily: "Raleway",
-                          fontSize: 12.0,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.white,
+                      child: Container(
+                        padding: EdgeInsets.only(left: 20),
+                        child: Text(
+                          "A tool which blends with your study patterns and builds consistency.",
+                          style: TextStyle(
+                            fontFamily: "Raleway",
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
@@ -282,10 +294,38 @@ Widget buildBackground() {
   );
 }
 
+Widget buildBackgroundsign() {
+  return Scaffold(
+    body: Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/images/bgsignup1.png"),
+          fit: BoxFit.cover,
+        ),
+      ),
+    ),
+  );
+}
+
 class Signup1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          buildBackgroundsign(),
+          Positioned(
+            top: 450.0,
+            left: 40.0,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
