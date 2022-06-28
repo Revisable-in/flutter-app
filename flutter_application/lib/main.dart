@@ -16,7 +16,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Revisable'),
-      routes: <String, WidgetBuilder>{'/Signup': (context) => Signup()},
+      routes: {
+        '/Signup': (context) => Signup(),
+        '/Signup1': (context) => Signup1(),
+        '/Login': (context) => Signup1(),
+      },
     );
   }
 }
@@ -83,78 +87,181 @@ class Signup extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 80),
-              child: Text(
-                "COURSE BASED FLASHCARDS",
-                style: TextStyle(
-                  fontFamily: "Raleway",
-                  fontSize: 13.0,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.white,
+            Row(
+              children: [
+                Container(
+                    padding: EdgeInsets.fromLTRB(0, 0, 0, 23.0),
+                    child: Image(
+                      image: AssetImage("assets/images/flashcard.png"),
+                    )),
+                Column(
+                  children: [
+                    Container(
+                      child: Text(
+                        "COURSE BASED FLASHCARDS",
+                        style: TextStyle(
+                          fontFamily: "Raleway",
+                          fontSize: 13.0,
+                          fontWeight: FontWeight.w900,
+                          color: Colors.white,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 200.0,
+                      // padding: EdgeInsets.fromLTRB(0, 0, 0, 23.0),
+                      child: Text(
+                        "Spaced repetition to help you retain for longer.",
+                        style: TextStyle(
+                          fontFamily: "Raleway",
+                          fontSize: 12.0,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.white,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                  ],
                 ),
-              ),
+              ],
+            ),
+            Row(
+              children: [
+                Container(
+                    padding: EdgeInsets.fromLTRB(0, 0, 0, 23.0),
+                    child: Image(
+                      image: AssetImage("assets/images/schedule.png"),
+                    )),
+                Column(
+                  children: [
+                    Container(
+                      child: Text(
+                        "INSIGHTS & ANALYSIS",
+                        style: TextStyle(
+                          fontFamily: "Raleway",
+                          fontSize: 13.0,
+                          fontWeight: FontWeight.w900,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 200.0,
+                      // padding: EdgeInsets.fromLTRB(0, 0, 0, 23.0),
+                      child: Text(
+                        "Insights which help you study smarter and more consistently.",
+                        style: TextStyle(
+                          fontFamily: "Raleway",
+                          fontSize: 12.0,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Container(
+                    child: Image(
+                  image: AssetImage("assets/images/revise.png"),
+                )),
+                Column(
+                  children: [
+                    Container(
+                      child: Text(
+                        "VERSATILE REVISION TOOL",
+                        style: TextStyle(
+                          fontFamily: "Raleway",
+                          fontSize: 13.0,
+                          fontWeight: FontWeight.w900,
+                          color: Colors.white,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 200.0,
+
+                      // padding: EdgeInsets.symmetric(horizontal: 10),
+                      child: Text(
+                        "A tool which blends with your study patterns and builds consistency.",
+                        style: TextStyle(
+                          fontFamily: "Raleway",
+                          fontSize: 12.0,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 80),
-              child: Text(
-                "Spaced repetition to help you retain for longer.",
-                style: TextStyle(
-                  fontFamily: "Raleway",
-                  fontSize: 12.0,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.white,
-                ),
+              padding: EdgeInsets.fromLTRB(10.0, 50, 0, 0),
+              child: Column(
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/Signup1');
+                    },
+                    style: ElevatedButton.styleFrom(
+                      // side: BorderSide(color: Colors.white),
+                      primary: Color.fromARGB(255, 4, 35, 94),
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: Ink(
+                      width: 300,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(color: Colors.white, width: 1.0),
+                        gradient: const LinearGradient(colors: [
+                          Color.fromARGB(255, 55, 213, 214),
+                          Color.fromARGB(255, 94, 41, 159),
+                        ]),
+                      ),
+                      child: Container(
+                        width: 100,
+                        height: 50,
+                        // decoration: BoxDecoration(border: Border.all(width: 0)),
+                        alignment: Alignment.center,
+                        child: const Text(
+                          "SIGN UP - IT'S FREE",
+                          style: TextStyle(
+                            fontFamily: "Raleway",
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      elevation: 0.0,
+                      padding: EdgeInsets.fromLTRB(0, 30, 0, 0),
+                      primary: Colors.red.withOpacity(0),
+                      shape: RoundedRectangleBorder(
+                          // borderRadius: BorderRadius.all(
+                          //   Radius.circular(2),
+                          // ),
+                          side: BorderSide(color: Colors.transparent)),
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/Login');
+                    },
+                    child: Text("Log In"),
+                  ),
+                ],
               ),
-            ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 80),
-              child: Text(
-                "INSIGHTS & FLASHCARDS",
-                style: TextStyle(
-                  fontFamily: "Raleway",
-                  fontSize: 13.0,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 80),
-              child: Text(
-                "Insights which help you study smarter and more consistently.",
-                style: TextStyle(
-                  fontFamily: "Raleway",
-                  fontSize: 12.0,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 80),
-              child: Text(
-                "VERSATILE REVISION TOOL",
-                style: TextStyle(
-                  fontFamily: "Raleway",
-                  fontSize: 13.0,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.white,
-                ),
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 80),
-              child: Text(
-                "A tool which blends with your study patterns and builds consistency.",
-                style: TextStyle(
-                  fontFamily: "Raleway",
-                  fontSize: 12.0,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.white,
-                ),
-              ),
-            ),
+            )
           ],
         ),
       ),
@@ -173,4 +280,18 @@ Widget buildBackground() {
       ),
     ),
   );
+}
+
+class Signup1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold();
+  }
+}
+
+class Login extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold();
+  }
 }
