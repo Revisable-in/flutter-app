@@ -405,6 +405,45 @@ class Signup1 extends StatelessWidget {
                     ),
                   ),
                 ),
+                Container(
+                  margin: EdgeInsets.symmetric(
+                    horizontal: 60,
+                  ),
+                  padding: EdgeInsets.fromLTRB(110, 15, 0, 0),
+                  child: Text(
+                    'hello',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: "Raleway",
+                      fontSize: 12.0,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 4, 35, 94),
+                    ),
+                  ),
+                  decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(color: Colors.white),
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.fromLTRB(120, 15, 0, 0),
+                  child: Text(
+                    'or',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: "Raleway",
+                      fontSize: 12.0,
+                      fontWeight: FontWeight.w400,
+                      color: Colors.white,
+                    ),
+                  ),
+                  // decoration: BoxDecoration(
+                  //   border: Border(
+                  //     bottom: BorderSide(color: Colors.white),
+                  //   ),
+                  // ),
+                ),
               ],
             ),
           ),
