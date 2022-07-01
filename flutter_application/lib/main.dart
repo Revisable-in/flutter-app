@@ -316,11 +316,96 @@ class Signup1 extends StatelessWidget {
         children: [
           buildBackgroundsign(),
           Positioned(
-            top: 450.0,
-            left: 40.0,
+            top: 275.0,
+            left: 80.0,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [],
+              children: [
+                SizedBox(
+                  width: 250.0,
+                  child: Container(
+                    alignment: Alignment.topCenter,
+                    // padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                    child: Text(
+                      "Your only medico revision companion",
+                      style: TextStyle(
+                        fontFamily: "Raleway",
+                        fontSize: 24.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 300,
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(0, 50, 40, 0),
+                    child: TextField(
+                      style: TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.cyan, width: 1.0),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.white, width: 1.0),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        hintText: 'Email ID',
+                        hintStyle: TextStyle(
+                          color: Color.fromARGB(255, 245, 244, 255),
+                          fontStyle: FontStyle.italic,
+                          fontSize: 10,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/Signup2');
+                  },
+                  style: ElevatedButton.styleFrom(
+                    // side: BorderSide(color: Colors.white),
+                    padding: EdgeInsets.fromLTRB(0, 35, 30, 0),
+                    primary: Color.fromARGB(255, 4, 35, 94),
+                    shape: new RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  child: Ink(
+                    width: 260,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      border: Border.all(color: Colors.white, width: 1.0),
+                      gradient: const LinearGradient(colors: [
+                        Color.fromARGB(255, 55, 213, 214),
+                        Color.fromARGB(255, 94, 41, 159),
+                      ]),
+                    ),
+                    child: Container(
+                      width: 100,
+                      height: 50,
+                      // decoration: BoxDecoration(border: Border.all(width: 0)),
+
+                      alignment: Alignment.center,
+                      child: const Text(
+                        "SIGN UP",
+                        style: TextStyle(
+                          fontFamily: "Raleway",
+                          fontSize: 12.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
@@ -331,7 +416,170 @@ class Signup1 extends StatelessWidget {
 
 class Login extends StatelessWidget {
   @override
+  @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          buildBackgroundsign(),
+          Positioned(
+            top: 325.0,
+            left: 80.0,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: 250.0,
+                  child: Container(
+                    alignment: Alignment.topCenter,
+                    // padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                    child: Text(
+                      "Log in back to your account!",
+                      style: TextStyle(
+                        fontFamily: "Raleway",
+                        fontSize: 24.0,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 300,
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(0, 50, 40, 0),
+                    child: TextField(
+                      style: TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.cyan, width: 1.0),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.white, width: 1.0),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        hintText: 'Email ID',
+                        hintStyle: TextStyle(
+                          color: Color.fromARGB(255, 245, 244, 255),
+                          fontStyle: FontStyle.italic,
+                          fontSize: 10,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 300,
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(0, 25, 40, 0),
+                    child: TextField(
+                      style: TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        focusedBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.cyan, width: 1.0),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide:
+                              BorderSide(color: Colors.white, width: 1.0),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        hintText: 'Password',
+                        hintStyle: TextStyle(
+                          color: Color.fromARGB(255, 245, 244, 255),
+                          fontStyle: FontStyle.italic,
+                          fontSize: 10,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/Started');
+                  },
+                  style: ElevatedButton.styleFrom(
+                    // side: BorderSide(color: Colors.white),
+                    padding: EdgeInsets.fromLTRB(0, 35, 30, 0),
+                    primary: Color.fromARGB(255, 4, 35, 94),
+                    shape: new RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                  child: Ink(
+                    width: 260,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                      border: Border.all(color: Colors.white, width: 1.0),
+                      gradient: const LinearGradient(colors: [
+                        Color.fromARGB(255, 55, 213, 214),
+                        Color.fromARGB(255, 94, 41, 159),
+                      ]),
+                    ),
+                    child: Container(
+                      width: 100,
+                      height: 50,
+                      // decoration: BoxDecoration(border: Border.all(width: 0)),
+
+                      alignment: Alignment.center,
+                      child: const Text(
+                        "CONTINUE (3/4)",
+                        style: TextStyle(
+                          fontFamily: "Raleway",
+                          fontSize: 12.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 300,
+                  child: Padding(
+                    padding: EdgeInsets.fromLTRB(28, 170, 0, 0),
+                    child: Row(
+                      children: [
+                        Text(
+                          "Do not have an account?      ",
+                          style: TextStyle(
+                            fontFamily: "Raleway",
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.white,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        new GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/Signup1');
+                          },
+                          child: Text(
+                            "Sign Up!",
+                            style: TextStyle(
+                              fontFamily: "Raleway",
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
