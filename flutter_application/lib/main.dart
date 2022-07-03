@@ -74,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Column(
                       children: [
                         Container(
-                          padding: EdgeInsets.only(right: 10),
+                          padding: EdgeInsets.only(right: 0),
                           child: Text(
                             "COURSE BASED FLASHCARDS",
                             style: TextStyle(
@@ -111,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Column(
                       children: [
                         Container(
-                          padding: EdgeInsets.only(right: 55),
+                          padding: EdgeInsets.only(right: 48),
                           child: Text(
                             "INSIGHTS & ANALYSIS",
                             style: TextStyle(
@@ -147,7 +147,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Column(
                       children: [
                         Container(
-                          padding: EdgeInsets.only(right: 25),
+                          padding: EdgeInsets.only(right: 17),
                           child: Text(
                             "VERSATILE REVISION TOOL",
                             style: TextStyle(
@@ -221,7 +221,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             style: TextStyle(
                               fontFamily: "Raleway",
                               fontSize: 12.0,
-                              fontWeight: FontWeight.w400,
+                              fontWeight: FontWeight.w900,
                               color: Colors.white,
                             ),
                           ),
@@ -242,7 +242,15 @@ class _MyHomePageState extends State<MyHomePage> {
                       onPressed: () {
                         Navigator.pushNamed(context, '/Login');
                       },
-                      child: Text("Log In"),
+                      child: Text(
+                        "Log In",
+                        style: TextStyle(
+                          fontFamily: "Raleway",
+                          fontSize: 12.0,
+                          fontWeight: FontWeight.w900,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -314,16 +322,16 @@ class _Signup1State extends State<Signup1> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    width: 250.0,
+                    width: 280.0,
                     child: Container(
                       alignment: Alignment.topCenter,
-                      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                       child: Text(
                         "Your only medico revision companion",
                         style: TextStyle(
                           fontFamily: "Raleway",
                           fontSize: 24.0,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w900,
                           color: Colors.white,
                         ),
                         textAlign: TextAlign.center,
@@ -674,10 +682,10 @@ class _Signup2State extends State<Signup2> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    width: 225.0,
+                    width: 255.0,
                     child: Container(
                       alignment: Alignment.topCenter,
-                      padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
+                      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
                       child: Text(
                         "Kickstart your medical learning experience!",
                         style: TextStyle(
@@ -741,8 +749,9 @@ class _Signup2State extends State<Signup2> {
                         Text(
                           "Subscribe to Whatsapp Medcases",
                           style: TextStyle(
-                            color: Colors.white,
-                          ),
+                              color: Colors.white,
+                              fontFamily: 'Raleway',
+                              fontWeight: FontWeight.w400),
                         ),
                       ],
                     ),
@@ -764,9 +773,10 @@ class _Signup2State extends State<Signup2> {
                         Text(
                           "Subscribe to ChampionMed’s mail-list",
                           style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 14,
-                          ),
+                              color: Colors.white,
+                              fontSize: 14,
+                              fontFamily: 'Raleway',
+                              fontWeight: FontWeight.w400),
                         ),
                       ],
                     ),
@@ -876,10 +886,10 @@ class Signup3 extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  width: 250.0,
+                  width: 260.0,
                   child: Container(
                     alignment: Alignment.topCenter,
-                    padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                    padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
                     child: Text(
                       "Help us set up your personalised account!",
                       style: TextStyle(
@@ -1074,10 +1084,10 @@ class Signup4 extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  width: 250.0,
+                  width: 260.0,
                   child: Container(
                     alignment: Alignment.topCenter,
-                    padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                    padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
                     child: Text(
                       "Help us set up your personalised account!",
                       style: TextStyle(
