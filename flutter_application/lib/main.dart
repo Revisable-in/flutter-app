@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
         '/Signup4': (context) => Signup4(),
         '/Started': (context) => Started(),
         '/Login': (context) => Login(),
+        '/Main1': (context) => Main1(),
       },
     );
   }
@@ -53,6 +54,16 @@ class Signup1 extends StatefulWidget {
 class Signup2 extends StatefulWidget {
   @override
   _Signup2State createState() => _Signup2State();
+}
+
+class Signup3 extends StatefulWidget {
+  @override
+  _Signup3State createState() => _Signup3State();
+}
+
+class Signup4 extends StatefulWidget {
+  @override
+  _Signup4State createState() => _Signup4State();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -567,7 +578,10 @@ class _LoginState extends State<Login> {
                             String pattern =
                                 r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
                             if (!RegExp(pattern).hasMatch(value))
-                              return 'Invalid password format';
+                              return '''
+Password must be 8 least characters,
+include an uppercase letter, number and symbol.
+''';
                             return null;
                           }),
                     ),
@@ -871,197 +885,293 @@ class _Signup2State extends State<Signup2> {
 
 //-----------------------------------------------------------SIGNUP3---------------------------------------------------------------------------
 
-class Signup3 extends StatelessWidget {
+class _Signup3State extends State<Signup3> {
+  final GlobalKey<FormState> _key = GlobalKey<FormState>();
+  String dropdownValue = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          buildBackgroundsign(),
-          Positioned(
-            top: 275.0,
-            left: 70.0,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: 260.0,
-                  child: Container(
-                    alignment: Alignment.topCenter,
-                    padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
-                    child: Text(
-                      "Help us set up your personalised account!",
-                      style: TextStyle(
-                        fontFamily: "Raleway",
-                        fontSize: 24.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 320,
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(0, 50, 40, 0),
-                    child: TextField(
-                      style: TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.cyan, width: 1.0),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.white, width: 1.0),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        hintText: 'Year of Education',
-                        hintStyle: TextStyle(
-                          color: Color.fromARGB(255, 245, 244, 255),
-                          fontStyle: FontStyle.italic,
-                          fontSize: 10,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 320,
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(0, 25, 40, 0),
-                    child: TextField(
-                      style: TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.cyan, width: 1.0),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.white, width: 1.0),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        hintText: 'College',
-                        hintStyle: TextStyle(
-                          color: Color.fromARGB(255, 245, 244, 255),
-                          fontStyle: FontStyle.italic,
-                          fontSize: 10,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 320,
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(0, 25, 40, 35),
-                    child: TextField(
-                      style: TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.cyan, width: 1.0),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.white, width: 1.0),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        hintText: 'State',
-                        hintStyle: TextStyle(
-                          color: Color.fromARGB(255, 245, 244, 255),
-                          fontStyle: FontStyle.italic,
-                          fontSize: 10,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/Signup4');
-                  },
-                  style: ElevatedButton.styleFrom(
-                    // side: BorderSide(color: Colors.white),
-                    padding: EdgeInsets.fromLTRB(0, 0, 30, 0),
-                    primary: Color.fromARGB(255, 4, 35, 94),
-                    shape: new RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  child: Ink(
-                    width: 280,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      border: Border.all(color: Colors.white, width: 1.0),
-                      gradient: const LinearGradient(colors: [
-                        Color.fromARGB(255, 55, 213, 214),
-                        Color.fromARGB(255, 94, 41, 159),
-                      ]),
-                    ),
+      body: Form(
+        key: _key,
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            buildBackgroundsign(),
+            Positioned(
+              top: 275.0,
+              left: 70.0,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: 260.0,
                     child: Container(
-                      width: 100,
-                      height: 50,
-                      // decoration: BoxDecoration(border: Border.all(width: 0)),
-
-                      alignment: Alignment.center,
-                      child: const Text(
-                        "CONTINUE (3/4)",
+                      alignment: Alignment.topCenter,
+                      padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
+                      child: Text(
+                        "Help us set up your personalised account!",
                         style: TextStyle(
                           fontFamily: "Raleway",
-                          fontSize: 12.0,
+                          fontSize: 24.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  width: 300,
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(35, 95, 0, 0),
-                    child: Row(
-                      children: [
-                        Text(
-                          "Already have an account?      ",
+                  SizedBox(
+                    width: 320,
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(0, 50, 40, 0),
+                      child: DropdownButtonFormField(
+                          style: TextStyle(color: Colors.white),
+                          decoration: InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.cyan, width: 1.0),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 1.0),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            hintText: 'Year of Education',
+                            hintStyle: TextStyle(
+                              color: Color.fromARGB(255, 245, 244, 255),
+                              fontStyle: FontStyle.italic,
+                              fontSize: 10,
+                            ),
+                          ),
+                          value: dropdownValue,
+                          items: [
+                            DropdownMenuItem<String>(
+                                child: Text(
+                                  'Year of Education',
+                                  style: TextStyle(
+                                    fontStyle: FontStyle.italic,
+                                    fontSize: 11,
+                                  ),
+                                ),
+                                value: ''),
+                            DropdownMenuItem<String>(
+                                child: Text(
+                                  'First',
+                                  style: dropdownValue == 'First'
+                                      ? TextStyle(
+                                          color: Colors.white,
+                                          fontStyle: FontStyle.italic,
+                                          fontSize: 11,
+                                        )
+                                      : TextStyle(
+                                          color: Color.fromARGB(255, 0, 0, 0)),
+                                ),
+                                value: 'First'),
+                            DropdownMenuItem<String>(
+                                child: Text(
+                                  'Second',
+                                  style: dropdownValue == 'Second'
+                                      ? TextStyle(
+                                          color: Colors.white,
+                                          fontStyle: FontStyle.italic,
+                                          fontSize: 11,
+                                        )
+                                      : TextStyle(
+                                          color: Color.fromARGB(255, 0, 0, 0)),
+                                ),
+                                value: 'Second'),
+                            DropdownMenuItem<String>(
+                                child: Text(
+                                  'Third',
+                                  style: dropdownValue == 'Third'
+                                      ? TextStyle(
+                                          color: Colors.white,
+                                          fontStyle: FontStyle.italic,
+                                          fontSize: 11,
+                                        )
+                                      : TextStyle(
+                                          color: Color.fromARGB(255, 0, 0, 0)),
+                                ),
+                                value: 'Third'),
+                            DropdownMenuItem<String>(
+                                child: Text(
+                                  'Fourth',
+                                  style: dropdownValue == 'Fourth'
+                                      ? TextStyle(
+                                          color: Colors.white,
+                                          fontStyle: FontStyle.italic,
+                                          fontSize: 11,
+                                        )
+                                      : TextStyle(
+                                          color: Color.fromARGB(255, 0, 0, 0)),
+                                ),
+                                value: 'Fourth'),
+                            DropdownMenuItem<String>(
+                                child: Text(
+                                  'Fifth',
+                                  style: dropdownValue == 'Fifth'
+                                      ? TextStyle(
+                                          color: Colors.white,
+                                          fontStyle: FontStyle.italic,
+                                          fontSize: 11,
+                                        )
+                                      : TextStyle(
+                                          color: Color.fromARGB(255, 0, 0, 0)),
+                                ),
+                                value: 'Fifth'),
+                          ],
+                          onChanged: (String? value) {
+                            setState(() {
+                              dropdownValue = value!;
+                              TextStyle(color: Colors.black);
+                            });
+                          },
+                          validator: (value) {
+                            if (dropdownValue == '')
+                              return 'You must select a value.';
+                            return null;
+                          }),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 320,
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(0, 25, 40, 0),
+                      child: TextField(
+                        style: TextStyle(color: Colors.white),
+                        decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.cyan, width: 1.0),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 1.0),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          hintText: 'College',
+                          hintStyle: TextStyle(
+                            color: Color.fromARGB(255, 245, 244, 255),
+                            fontStyle: FontStyle.italic,
+                            fontSize: 11,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 320,
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(0, 25, 40, 35),
+                      child: TextField(
+                        style: TextStyle(color: Colors.white),
+                        decoration: InputDecoration(
+                          focusedBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.cyan, width: 1.0),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.white, width: 1.0),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          hintText: 'State',
+                          hintStyle: TextStyle(
+                            color: Color.fromARGB(255, 245, 244, 255),
+                            fontStyle: FontStyle.italic,
+                            fontSize: 11,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      if (_key.currentState!.validate()) {
+                        _key.currentState!.save();
+                        Navigator.pushNamed(context, '/Signup4');
+                      }
+                    },
+                    style: ElevatedButton.styleFrom(
+                      // side: BorderSide(color: Colors.white),
+                      padding: EdgeInsets.fromLTRB(0, 0, 30, 0),
+                      primary: Color.fromARGB(255, 4, 35, 94),
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: Ink(
+                      width: 280,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(color: Colors.white, width: 1.0),
+                        gradient: const LinearGradient(colors: [
+                          Color.fromARGB(255, 55, 213, 214),
+                          Color.fromARGB(255, 94, 41, 159),
+                        ]),
+                      ),
+                      child: Container(
+                        width: 100,
+                        height: 50,
+                        // decoration: BoxDecoration(border: Border.all(width: 0)),
+
+                        alignment: Alignment.center,
+                        child: const Text(
+                          "CONTINUE (3/4)",
                           style: TextStyle(
                             fontFamily: "Raleway",
                             fontSize: 12.0,
-                            fontWeight: FontWeight.w400,
+                            fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
-                          textAlign: TextAlign.center,
                         ),
-                        new GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, '/Login');
-                          },
-                          child: Text(
-                            "Log In",
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 300,
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(35, 95, 0, 0),
+                      child: Row(
+                        children: [
+                          Text(
+                            "Already have an account?      ",
                             style: TextStyle(
                               fontFamily: "Raleway",
                               fontSize: 12.0,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w400,
                               color: Colors.white,
                             ),
                             textAlign: TextAlign.center,
                           ),
-                        ),
-                      ],
+                          new GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, '/Login');
+                            },
+                            child: Text(
+                              "Log In",
+                              style: TextStyle(
+                                fontFamily: "Raleway",
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -1069,170 +1179,242 @@ class Signup3 extends StatelessWidget {
 
 //--------------------------------------------------------SIGNUP-4------------------------------------------------------------------------
 
-class Signup4 extends StatelessWidget {
+class _Signup4State extends State<Signup4> {
+  final GlobalKey<FormState> _key = GlobalKey<FormState>();
+  String dropdownValue = '';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          buildBackgroundsign(),
-          Positioned(
-            top: 275.0,
-            left: 70.0,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  width: 260.0,
-                  child: Container(
-                    alignment: Alignment.topCenter,
-                    padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
-                    child: Text(
-                      "Help us set up your personalised account!",
-                      style: TextStyle(
-                        fontFamily: "Raleway",
-                        fontSize: 24.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 320,
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(0, 50, 40, 0),
-                    child: TextField(
-                      style: TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.cyan, width: 1.0),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.white, width: 1.0),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        hintText: 'Package',
-                        hintStyle: TextStyle(
-                          color: Color.fromARGB(255, 245, 244, 255),
-                          fontStyle: FontStyle.italic,
-                          fontSize: 10,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 320,
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(0, 25, 40, 35),
-                    child: TextField(
-                      style: TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.cyan, width: 1.0),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: Colors.white, width: 1.0),
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        hintText: 'Purpose of Joining',
-                        hintStyle: TextStyle(
-                          color: Color.fromARGB(255, 245, 244, 255),
-                          fontStyle: FontStyle.italic,
-                          fontSize: 10,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/Started');
-                  },
-                  style: ElevatedButton.styleFrom(
-                    // side: BorderSide(color: Colors.white),
-                    padding: EdgeInsets.fromLTRB(0, 0, 30, 0),
-                    primary: Color.fromARGB(255, 4, 35, 94),
-                    shape: new RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                  child: Ink(
-                    width: 280,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      border: Border.all(color: Colors.white, width: 1.0),
-                      gradient: const LinearGradient(colors: [
-                        Color.fromARGB(255, 55, 213, 214),
-                        Color.fromARGB(255, 94, 41, 159),
-                      ]),
-                    ),
+      body: Form(
+        key: _key,
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            buildBackgroundsign(),
+            Positioned(
+              top: 275.0,
+              left: 70.0,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    width: 260.0,
                     child: Container(
-                      width: 100,
-                      height: 50,
-                      // decoration: BoxDecoration(border: Border.all(width: 0)),
-
-                      alignment: Alignment.center,
-                      child: const Text(
-                        "COMPLETE",
+                      alignment: Alignment.topCenter,
+                      padding: EdgeInsets.fromLTRB(25, 0, 0, 0),
+                      child: Text(
+                        "Help us set up your personalised account!",
                         style: TextStyle(
                           fontFamily: "Raleway",
-                          fontSize: 12.0,
+                          fontSize: 24.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
+                        textAlign: TextAlign.center,
                       ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  width: 300,
-                  child: Padding(
-                    padding: EdgeInsets.fromLTRB(35, 95, 0, 0),
-                    child: Row(
-                      children: [
-                        Text(
-                          "Already have an account?      ",
+                  SizedBox(
+                    width: 320,
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(0, 50, 40, 0),
+                      child: DropdownButtonFormField(
+                          style: TextStyle(color: Colors.white),
+                          decoration: InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.cyan, width: 1.0),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 1.0),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            hintText: 'Year of Education',
+                            hintStyle: TextStyle(
+                              color: Color.fromARGB(255, 245, 244, 255),
+                              fontStyle: FontStyle.italic,
+                              fontSize: 10,
+                            ),
+                          ),
+                          value: dropdownValue,
+                          items: [
+                            DropdownMenuItem<String>(
+                                child: Text(
+                                  'Package',
+                                  style: TextStyle(
+                                    fontStyle: FontStyle.italic,
+                                    fontSize: 11,
+                                  ),
+                                ),
+                                value: ''),
+                            DropdownMenuItem<String>(
+                                child: Text(
+                                  'Free Trial',
+                                  style: dropdownValue == 'Free Trial'
+                                      ? TextStyle(
+                                          color: Colors.white,
+                                          fontStyle: FontStyle.italic,
+                                          fontSize: 11,
+                                        )
+                                      : TextStyle(
+                                          color: Color.fromARGB(255, 0, 0, 0)),
+                                ),
+                                value: 'Free Trial'),
+                            DropdownMenuItem<String>(
+                                child: Text(
+                                  'Refresher',
+                                  style: dropdownValue == 'Refresher'
+                                      ? TextStyle(
+                                          color: Colors.white,
+                                          fontStyle: FontStyle.italic,
+                                          fontSize: 11,
+                                        )
+                                      : TextStyle(
+                                          color: Color.fromARGB(255, 0, 0, 0)),
+                                ),
+                                value: 'Refresher'),
+                            DropdownMenuItem<String>(
+                                child: Text(
+                                  'Refresher Plus',
+                                  style: dropdownValue == 'Refresher Plus'
+                                      ? TextStyle(
+                                          color: Colors.white,
+                                          fontStyle: FontStyle.italic,
+                                          fontSize: 11,
+                                        )
+                                      : TextStyle(
+                                          color: Color.fromARGB(255, 0, 0, 0)),
+                                ),
+                                value: 'Refresher Plus'),
+                          ],
+                          onChanged: (String? value) {
+                            setState(() {
+                              dropdownValue = value!;
+                              TextStyle(color: Colors.black);
+                            });
+                          },
+                          validator: (value) {
+                            if (dropdownValue == '')
+                              return 'You must select a value.';
+                            return null;
+                          }),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 320,
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(0, 25, 40, 35),
+                      child: TextFormField(
+                          style: TextStyle(color: Colors.white),
+                          decoration: InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.cyan, width: 1.0),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 1.0),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            hintText: 'Purpose of Joining',
+                            hintStyle: TextStyle(
+                              color: Color.fromARGB(255, 245, 244, 255),
+                              fontStyle: FontStyle.italic,
+                              fontSize: 10,
+                            ),
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty)
+                              return 'Field is required';
+                          }),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      if (_key.currentState!.validate()) {
+                        _key.currentState!.save();
+                        Navigator.pushNamed(context, '/Started');
+                      }
+                    },
+                    style: ElevatedButton.styleFrom(
+                      // side: BorderSide(color: Colors.white),
+                      padding: EdgeInsets.fromLTRB(0, 0, 30, 0),
+                      primary: Color.fromARGB(255, 4, 35, 94),
+                      shape: new RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: Ink(
+                      width: 280,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(color: Colors.white, width: 1.0),
+                        gradient: const LinearGradient(colors: [
+                          Color.fromARGB(255, 55, 213, 214),
+                          Color.fromARGB(255, 94, 41, 159),
+                        ]),
+                      ),
+                      child: Container(
+                        width: 100,
+                        height: 50,
+                        // decoration: BoxDecoration(border: Border.all(width: 0)),
+
+                        alignment: Alignment.center,
+                        child: const Text(
+                          "COMPLETE",
                           style: TextStyle(
                             fontFamily: "Raleway",
                             fontSize: 12.0,
-                            fontWeight: FontWeight.w400,
+                            fontWeight: FontWeight.bold,
                             color: Colors.white,
                           ),
-                          textAlign: TextAlign.center,
                         ),
-                        new GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, '/Login');
-                          },
-                          child: Text(
-                            "Log In",
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    width: 300,
+                    child: Padding(
+                      padding: EdgeInsets.fromLTRB(35, 95, 0, 0),
+                      child: Row(
+                        children: [
+                          Text(
+                            "Already have an account?      ",
                             style: TextStyle(
                               fontFamily: "Raleway",
                               fontSize: 12.0,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w400,
                               color: Colors.white,
                             ),
                             textAlign: TextAlign.center,
                           ),
-                        ),
-                      ],
+                          new GestureDetector(
+                            onTap: () {
+                              Navigator.pushNamed(context, '/Login');
+                            },
+                            child: Text(
+                              "Log In",
+                              style: TextStyle(
+                                fontFamily: "Raleway",
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                )
-              ],
+                  )
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -1293,7 +1475,7 @@ class Started extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/');
+                      Navigator.pushNamed(context, '/Main1');
                     },
                     style: ElevatedButton.styleFrom(
                       // side: BorderSide(color: Colors.white),
@@ -1336,5 +1518,99 @@ class Started extends StatelessWidget {
         ),
       ),
     ]));
+  }
+}
+
+//-------------------------------------------------------------------MAIN-1-------------------------------------------------------------------
+
+class Main1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        bottomNavigationBar: new Theme(
+          data: Theme.of(context).copyWith(
+              // sets the background color of the `BottomNavigationBar`
+              canvasColor: Color.fromARGB(255, 4, 35, 93),
+              // sets the active color of the `BottomNavigationBar` if `Brightness` is light
+              primaryColor: Colors.red,
+              textTheme: Theme.of(context).textTheme.copyWith(
+                  caption: new TextStyle(
+                      color: Colors
+                          .yellow))), // sets the inactive color of the `BottomNavigationBar`
+          child: new BottomNavigationBar(
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            type: BottomNavigationBarType.fixed,
+            currentIndex: 0,
+            items: [
+              BottomNavigationBarItem(
+                icon: Image(
+                  image: AssetImage("assets/images/openbook.png"),
+                ),
+                label: " ",
+              ),
+              BottomNavigationBarItem(
+                icon: Image(
+                  image: AssetImage("assets/images/firstaid.png"),
+                ),
+                label: "aid",
+              ),
+              BottomNavigationBarItem(
+                icon: Image(
+                  image: AssetImage("assets/images/house.png"),
+                ),
+                label: "Home",
+              ),
+              BottomNavigationBarItem(
+                icon: Image(
+                  image: AssetImage("assets/images/screen.png"),
+                ),
+                label: "screen",
+              ),
+              BottomNavigationBarItem(
+                icon: Image(
+                  image: AssetImage("assets/images/question.png"),
+                ),
+                label: "Help",
+              ),
+            ],
+          ),
+        ),
+        body: Stack(fit: StackFit.expand, children: [
+          Positioned(
+            top: 50.0,
+            left: 30,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Image(
+                      image: AssetImage("assets/images/backbutton.png"),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(15, 0, 170, 0),
+                      child: Text(
+                        "Courses",
+                        style: TextStyle(
+                          fontFamily: "Raleway",
+                          fontSize: 24.0,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 4, 35, 93),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                      child: Image(
+                        image: AssetImage("assets/images/profile.png"),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ]));
   }
 }
