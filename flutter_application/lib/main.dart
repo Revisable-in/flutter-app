@@ -1,5 +1,5 @@
 import 'dart:html';
-
+import 'crypto_data.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         unselectedWidgetColor: Colors.white,
       ),
-      home: MyHomePage(title: 'Revisable'),
+      // home: MyHomePage(title: 'Revisable'),
+      home: Main1(),
       routes: {
         '/Signup1': (context) => Signup1(),
         '/Signup2': (context) => Signup2(),
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         '/Started': (context) => Started(),
         '/Login': (context) => Login(),
         '/Main1': (context) => Main1(),
+        '/Main2': (context) => Main2(),
       },
     );
   }
@@ -1523,10 +1525,11 @@ class Started extends StatelessWidget {
 
 //-------------------------------------------------------------------MAIN-1-------------------------------------------------------------------
 
-class Main1 extends StatelessWidget {
+class Main2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Color.fromARGB(255, 245, 244, 255),
         bottomNavigationBar: new Theme(
           data: Theme.of(context).copyWith(
               // sets the background color of the `BottomNavigationBar`
@@ -1578,18 +1581,23 @@ class Main1 extends StatelessWidget {
         ),
         body: Stack(fit: StackFit.expand, children: [
           Positioned(
-            top: 50.0,
-            left: 30,
+            top: 35.0,
+            left: 20,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
-                    Image(
-                      image: AssetImage("assets/images/backbutton.png"),
+                    GestureDetector(
+                      child: Image(
+                        image: AssetImage("assets/images/backbutton.png"),
+                      ),
+                      onTap: () {
+                        Navigator.pushNamed(context, '/Started');
+                      },
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 170, 0),
+                      padding: EdgeInsets.fromLTRB(15, 0, 195, 0),
                       child: Text(
                         "Courses",
                         style: TextStyle(
@@ -1608,9 +1616,564 @@ class Main1 extends StatelessWidget {
                     ),
                   ],
                 ),
+                Row(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(right: 30, top: 25, bottom: 20),
+                      child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(colors: [
+                              Color.fromARGB(255, 55, 213, 214),
+                              Color.fromARGB(255, 94, 41, 159),
+                              //add more colors
+                            ]),
+                            borderRadius: BorderRadius.circular(40),
+                          ),
+                          child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.transparent,
+                                onSurface: Colors.transparent,
+                                shadowColor: Colors.transparent,
+                                //make color or elevated button transparent
+                              ),
+                              onPressed: () {
+                                print("You pressed Elevated Button");
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                  top: 12,
+                                  bottom: 12,
+                                ),
+                                child: Text("All Courses"),
+                              ))),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(right: 30, top: 25, bottom: 20),
+                      child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(colors: [
+                              Color.fromARGB(255, 55, 213, 214),
+                              Color.fromARGB(255, 94, 41, 159),
+                              //add more colors
+                            ]),
+                            borderRadius: BorderRadius.circular(40),
+                          ),
+                          child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.transparent,
+                                onSurface: Colors.transparent,
+                                shadowColor: Colors.transparent,
+                                //make color or elevated button transparent
+                              ),
+                              onPressed: () {
+                                print("You pressed Elevated Button");
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                  top: 12,
+                                  bottom: 12,
+                                ),
+                                child: Text("2nd Year"),
+                              ))),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(right: 20, top: 25, bottom: 20),
+                      child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(colors: [
+                              Color.fromARGB(255, 55, 213, 214),
+                              Color.fromARGB(255, 94, 41, 159),
+                              //add more colors
+                            ]),
+                            borderRadius: BorderRadius.circular(40),
+                          ),
+                          child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                primary: Colors.transparent,
+                                onSurface: Colors.transparent,
+                                shadowColor: Colors.transparent,
+                                //make color or elevated button transparent
+                              ),
+                              onPressed: () {
+                                print("You pressed Elevated Button");
+                              },
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                  top: 12,
+                                  bottom: 12,
+                                ),
+                                child: Text("Starred"),
+                              ))),
+                    ),
+                  ],
+                ),
+                Card(
+                  elevation: 30,
+                  shadowColor: Colors.black,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  color: Colors.white,
+                  child: SizedBox(
+                    width: 370,
+                    height: 80,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(10.0, 5, 5, 5),
+                      child: Row(
+                        children: [
+                          Image(image: AssetImage("assets/images/card1.png")),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(left: 40, top: 14),
+                                child: Text(
+                                  'Human Physiology',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontFamily: "Raleway",
+                                    color: Color.fromARGB(255, 4, 35, 93),
+                                    fontWeight: FontWeight.w900,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 10,
+                                width: 10,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(right: 20),
+                                child: Text(
+                                  '24 Chapters',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Color.fromARGB(255, 4, 35, 93),
+                                  ), //Textstyle
+                                ), //Text
+                              ),
+                              const SizedBox(
+                                height: 10,
+                              ),
+
+                              // SizedBox(
+                              //   width: 100,
+                              //   child: ElevatedButton(
+                              //     onPressed: () => 'Null',
+                              //     style: ButtonStyle(
+                              //         backgroundColor:
+                              //             MaterialStateProperty.all(
+                              //                 Colors.green)),
+                              //     child: Padding(
+                              //       padding: const EdgeInsets.all(4),
+                              //       child: Row(
+                              //         children: const [
+                              //           Icon(Icons.touch_app),
+                              //           Text('Visit')
+                              //         ],
+                              //       ),
+                              //     ),
+                              //   ),
+                              // ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
         ]));
+  }
+}
+
+//-------------------------------------------------------------------------------------------------------------------------------------------
+
+class Main1 extends StatelessWidget {
+  var cryptoData = CryptoData.getData;
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+            backgroundColor: Color.fromARGB(255, 245, 244, 255),
+            bottomNavigationBar: new Theme(
+              data: Theme.of(context).copyWith(
+                  // sets the background color of the `BottomNavigationBar`
+                  canvasColor: Color.fromARGB(255, 4, 35, 93),
+                  // sets the active color of the `BottomNavigationBar` if `Brightness` is light
+                  primaryColor: Colors.red,
+                  textTheme: Theme.of(context).textTheme.copyWith(
+                      caption: new TextStyle(
+                          color: Colors
+                              .yellow))), // sets the inactive color of the `BottomNavigationBar`
+              child: new BottomNavigationBar(
+                showSelectedLabels: false,
+                showUnselectedLabels: false,
+                type: BottomNavigationBarType.fixed,
+                currentIndex: 0,
+                items: [
+                  BottomNavigationBarItem(
+                    icon: Image(
+                      image: AssetImage("assets/images/openbook.png"),
+                    ),
+                    label: " ",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Image(
+                      image: AssetImage("assets/images/firstaid.png"),
+                    ),
+                    label: "aid",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Image(
+                      image: AssetImage("assets/images/house.png"),
+                    ),
+                    label: "Home",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Image(
+                      image: AssetImage("assets/images/screen.png"),
+                    ),
+                    label: "screen",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Image(
+                      image: AssetImage("assets/images/question.png"),
+                    ),
+                    label: "Help",
+                  ),
+                ],
+              ),
+            ),
+            body: Stack(fit: StackFit.expand, children: [
+              Container(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(left: 20, top: 25),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              GestureDetector(
+                                child: Image(
+                                  image: AssetImage(
+                                      "assets/images/backbutton.png"),
+                                ),
+                                onTap: () {
+                                  Navigator.pushNamed(context, '/Started');
+                                },
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(15, 0, 195, 0),
+                                child: Text(
+                                  "Courses",
+                                  style: TextStyle(
+                                    fontFamily: "Raleway",
+                                    fontSize: 24.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color.fromARGB(255, 4, 35, 93),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                child: Image(
+                                  image:
+                                      AssetImage("assets/images/profile.png"),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    right: 30, top: 20, bottom: 10),
+                                child: DecoratedBox(
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(colors: [
+                                        Color.fromARGB(255, 55, 213, 214),
+                                        Color.fromARGB(255, 94, 41, 159),
+                                        //add more colors
+                                      ]),
+                                      borderRadius: BorderRadius.circular(40),
+                                    ),
+                                    child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          primary: Colors.transparent,
+                                          onSurface: Colors.transparent,
+                                          shadowColor: Colors.transparent,
+                                          //make color or elevated button transparent
+                                        ),
+                                        onPressed: () {
+                                          print("You pressed Elevated Button");
+                                        },
+                                        child: Padding(
+                                          padding: EdgeInsets.only(
+                                            top: 12,
+                                            bottom: 12,
+                                          ),
+                                          child: Text("All Courses"),
+                                        ))),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    right: 30, top: 20, bottom: 10),
+                                child: DecoratedBox(
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(colors: [
+                                        Color.fromARGB(255, 55, 213, 214),
+                                        Color.fromARGB(255, 94, 41, 159),
+                                        //add more colors
+                                      ]),
+                                      borderRadius: BorderRadius.circular(40),
+                                    ),
+                                    child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          primary: Colors.transparent,
+                                          onSurface: Colors.transparent,
+                                          shadowColor: Colors.transparent,
+                                          //make color or elevated button transparent
+                                        ),
+                                        onPressed: () {
+                                          print("You pressed Elevated Button");
+                                        },
+                                        child: Padding(
+                                          padding: EdgeInsets.only(
+                                            top: 12,
+                                            bottom: 12,
+                                          ),
+                                          child: Text("2nd Year"),
+                                        ))),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    right: 20, top: 20, bottom: 10),
+                                child: DecoratedBox(
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(colors: [
+                                        Color.fromARGB(255, 55, 213, 214),
+                                        Color.fromARGB(255, 94, 41, 159),
+                                        //add more colors
+                                      ]),
+                                      borderRadius: BorderRadius.circular(40),
+                                    ),
+                                    child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          primary: Colors.transparent,
+                                          onSurface: Colors.transparent,
+                                          shadowColor: Colors.transparent,
+                                          //make color or elevated button transparent
+                                        ),
+                                        onPressed: () {
+                                          print("You pressed Elevated Button");
+                                        },
+                                        child: Padding(
+                                          padding: EdgeInsets.only(
+                                            top: 12,
+                                            bottom: 12,
+                                          ),
+                                          child: Text("Starred"),
+                                        ))),
+                              ),
+                            ],
+                          ),
+                          // Card(
+                          //   elevation: 30,
+                          //   shadowColor: Colors.black,
+                          //   shape: RoundedRectangleBorder(
+                          //     borderRadius: BorderRadius.circular(10),
+                          //   ),
+                          //   color: Colors.white,
+                          //   child: SizedBox(
+                          //     width: 370,
+                          //     height: 80,
+                          //     child: Padding(
+                          //       padding:
+                          //           const EdgeInsets.fromLTRB(10.0, 5, 5, 5),
+                          //       child: Row(
+                          //         children: [
+                          //           Image(
+                          //               image: AssetImage(
+                          //                   "assets/images/card1.png")),
+                          //           const SizedBox(
+                          //             height: 10,
+                          //           ),
+                          //           Column(
+                          //             children: [
+                          //               Padding(
+                          //                 padding: EdgeInsets.only(
+                          //                     left: 40, top: 14),
+                          //                 child: Text(
+                          //                   'Human Physiology',
+                          //                   style: TextStyle(
+                          //                     fontSize: 14,
+                          //                     fontFamily: "Raleway",
+                          //                     color: Color.fromARGB(
+                          //                         255, 4, 35, 93),
+                          //                     fontWeight: FontWeight.w900,
+                          //                   ),
+                          //                 ),
+                          //               ),
+                          //               const SizedBox(
+                          //                 height: 10,
+                          //                 width: 10,
+                          //               ),
+                          //               Padding(
+                          //                 padding: EdgeInsets.only(right: 20),
+                          //                 child: Text(
+                          //                   '24 Chapters',
+                          //                   style: TextStyle(
+                          //                     fontSize: 12,
+                          //                     color: Color.fromARGB(
+                          //                         255, 4, 35, 93),
+                          //                   ), //Textstyle
+                          //                 ), //Text
+                          //               ),
+                          //               const SizedBox(
+                          //                 height: 10,
+                          //               ),
+
+                          //               // SizedBox(
+                          //               //   width: 100,
+                          //               //   child: ElevatedButton(
+                          //               //     onPressed: () => 'Null',
+                          //               //     style: ButtonStyle(
+                          //               //         backgroundColor:
+                          //               //             MaterialStateProperty.all(
+                          //               //                 Colors.green)),
+                          //               //     child: Padding(
+                          //               //       padding: const EdgeInsets.all(4),
+                          //               //       child: Row(
+                          //               //         children: const [
+                          //               //           Icon(Icons.touch_app),
+                          //               //           Text('Visit')
+                          //               //         ],
+                          //               //       ),
+                          //               //     ),
+                          //               //   ),
+                          //               // ),
+                          //             ],
+                          //           ),
+                          //         ],
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: ListView.builder(
+// scrollDirection: Axis.horizontal,
+                          itemCount: cryptoData.length,
+                          itemBuilder: (context, index) {
+                            return Container(
+                              padding: EdgeInsets.fromLTRB(20, 10, 16, 0),
+                              height: 100,
+                              width: double.maxFinite,
+                              child: Card(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                elevation: 5,
+                                child: Container(
+                                  // decoration: BoxDecoration(
+                                  //   border: Border(
+                                  //     top: BorderSide(
+                                  //       width: 2.0,
+                                  //     ),
+                                  //   ),
+                                  //   color: Colors.white,
+                                  // ),
+                                  child: Padding(
+                                    padding: EdgeInsets.all(7),
+                                    child: Stack(children: <Widget>[
+                                      Align(
+                                        alignment: Alignment.centerRight,
+                                        child: Stack(
+                                          children: <Widget>[
+                                            Padding(
+                                                padding: const EdgeInsets.only(
+                                                    left: 5, top: 5),
+                                                child: Column(
+                                                  children: <Widget>[
+                                                    Row(
+                                                      children: <Widget>[
+                                                        cryptoIcon(
+                                                            cryptoData[index]),
+                                                        SizedBox(
+                                                          height: 10,
+                                                        ),
+                                                        // Spacer(),
+                                                        cryptoChange(
+                                                            cryptoData[index]),
+                                                        SizedBox(
+                                                          width: 10,
+                                                        ),
+                                                        SizedBox(
+                                                          width: 20,
+                                                        )
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ))
+                                          ],
+                                        ),
+                                      )
+                                    ]),
+                                  ),
+                                ),
+                              ),
+                            );
+                          }),
+                    ),
+                  ],
+                ),
+              )
+            ])));
+  }
+
+  Widget cryptoIcon(data) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 0),
+      child: Align(
+          alignment: Alignment.centerLeft,
+          child: Image(
+            image: AssetImage('${data['image']}'),
+          )),
+    );
+  }
+
+  Widget cryptoChange(data) {
+    return Padding(
+      padding: EdgeInsets.only(left: 50),
+      child: RichText(
+        text: TextSpan(
+          text: '${data['change']}',
+          style: TextStyle(
+              fontFamily: "Raleway",
+              fontWeight: FontWeight.w900,
+              color: Color.fromARGB(255, 4, 35, 93),
+              fontSize: 14),
+          children: <TextSpan>[
+            TextSpan(
+                text: '\n${data['changeValue']}',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 4, 35, 93),
+                  fontSize: 12,
+                )),
+          ],
+        ),
+      ),
+    );
   }
 }
