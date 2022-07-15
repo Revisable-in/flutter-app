@@ -1,4 +1,5 @@
-import 'dart:html';
+import 'package:flutter_application/chapter.dart';
+
 import 'crypto_data.dart';
 import 'package:flutter/material.dart';
 
@@ -30,6 +31,18 @@ class MyApp extends StatelessWidget {
       },
     );
   }
+}
+
+class Chapter {
+  final List subject;
+  final List chapter;
+  final int number;
+
+  const Chapter({
+    required this.subject,
+    required this.chapter,
+    required this.number,
+  });
 }
 
 class MyHomePage extends StatefulWidget {
@@ -1794,6 +1807,102 @@ class Main2 extends StatelessWidget {
 
 class Main1 extends StatelessWidget {
   var cryptoData = CryptoData.getData;
+  List<Chapter> chapters = [
+    const Chapter(subject: [
+      'Infestations',
+      'Infective Dermatoses',
+      'Allergic Disorders',
+      'Melanin Synthesis',
+      'Urticaria',
+      'Epidermopoiesis',
+      'Pathogenesis',
+      'Psoriasis',
+      'Gonococcal and Non-Gonococcal Infections',
+      'HIV Infections',
+      'Drug Eruptions',
+      'Dermatological Emergencies',
+      'Vesiculo-Bullous Diseases',
+      'Erthema Multiforme'
+    ], chapter: [
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+    ], number: 14),
+    const Chapter(subject: [
+      'General Pharmacology',
+      'Autacoids',
+      'Gastrointestinal and Respiratory Systems',
+      'Cardiovascular System',
+      'Hormones',
+      'Miscellaneous',
+      'Central Nervous System',
+      'Autonomic Nervous System & the Peripheral Nervous System',
+      'Chemotherapy'
+    ], chapter: [
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+    ], number: 9),
+    const Chapter(
+        subject: ['Systematic Pathology', 'General Pathology', 'Practical'],
+        chapter: ['Chapter', 'Chapter', 'Chapter'],
+        number: 3),
+    const Chapter(subject: [
+      'bacteriology',
+      'microbiology',
+      'virology',
+      'labrotatory diagnosis of viral infections',
+      'common test for bacterial identifications',
+      'common laboratory methods for diagnosis of fungal infections',
+      'bacterial and viral genetics',
+      'collection of transport of samples',
+      'microorganisms associated with gastrointestinal infection',
+      'sterilisation and disinfection',
+      'gastrointestinal infections casued by parasites',
+      'mycology',
+      'parasitology',
+      'vaccines',
+      'host-parasite relationship',
+      'immunodiagnosis',
+      'bacterial staining and cultivation'
+    ], chapter: [
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+    
+    ], number: 17),
+  ];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -1986,96 +2095,16 @@ class Main1 extends StatelessWidget {
                               ),
                             ],
                           ),
-                          // Card(
-                          //   elevation: 30,
-                          //   shadowColor: Colors.black,
-                          //   shape: RoundedRectangleBorder(
-                          //     borderRadius: BorderRadius.circular(10),
-                          //   ),
-                          //   color: Colors.white,
-                          //   child: SizedBox(
-                          //     width: 370,
-                          //     height: 80,
-                          //     child: Padding(
-                          //       padding:
-                          //           const EdgeInsets.fromLTRB(10.0, 5, 5, 5),
-                          //       child: Row(
-                          //         children: [
-                          //           Image(
-                          //               image: AssetImage(
-                          //                   "assets/images/card1.png")),
-                          //           const SizedBox(
-                          //             height: 10,
-                          //           ),
-                          //           Column(
-                          //             children: [
-                          //               Padding(
-                          //                 padding: EdgeInsets.only(
-                          //                     left: 40, top: 14),
-                          //                 child: Text(
-                          //                   'Human Physiology',
-                          //                   style: TextStyle(
-                          //                     fontSize: 14,
-                          //                     fontFamily: "Raleway",
-                          //                     color: Color.fromARGB(
-                          //                         255, 4, 35, 93),
-                          //                     fontWeight: FontWeight.w900,
-                          //                   ),
-                          //                 ),
-                          //               ),
-                          //               const SizedBox(
-                          //                 height: 10,
-                          //                 width: 10,
-                          //               ),
-                          //               Padding(
-                          //                 padding: EdgeInsets.only(right: 20),
-                          //                 child: Text(
-                          //                   '24 Chapters',
-                          //                   style: TextStyle(
-                          //                     fontSize: 12,
-                          //                     color: Color.fromARGB(
-                          //                         255, 4, 35, 93),
-                          //                   ), //Textstyle
-                          //                 ), //Text
-                          //               ),
-                          //               const SizedBox(
-                          //                 height: 10,
-                          //               ),
-
-                          //               // SizedBox(
-                          //               //   width: 100,
-                          //               //   child: ElevatedButton(
-                          //               //     onPressed: () => 'Null',
-                          //               //     style: ButtonStyle(
-                          //               //         backgroundColor:
-                          //               //             MaterialStateProperty.all(
-                          //               //                 Colors.green)),
-                          //               //     child: Padding(
-                          //               //       padding: const EdgeInsets.all(4),
-                          //               //       child: Row(
-                          //               //         children: const [
-                          //               //           Icon(Icons.touch_app),
-                          //               //           Text('Visit')
-                          //               //         ],
-                          //               //       ),
-                          //               //     ),
-                          //               //   ),
-                          //               // ),
-                          //             ],
-                          //           ),
-                          //         ],
-                          //       ),
-                          //     ),
-                          //   ),
-                          // ),
                         ],
                       ),
                     ),
                     Expanded(
                       child: ListView.builder(
 // scrollDirection: Axis.horizontal,
+
                           itemCount: cryptoData.length,
                           itemBuilder: (context, index) {
+                            final chapter = chapters[index];
                             return Container(
                               padding: EdgeInsets.fromLTRB(20, 10, 16, 0),
                               height: 100,
@@ -2085,51 +2114,54 @@ class Main1 extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(10),
                                 ),
                                 elevation: 5,
-                                child: Container(
-                                  // decoration: BoxDecoration(
-                                  //   border: Border(
-                                  //     top: BorderSide(
-                                  //       width: 2.0,
-                                  //     ),
-                                  //   ),
-                                  //   color: Colors.white,
-                                  // ),
-                                  child: Padding(
-                                    padding: EdgeInsets.all(7),
-                                    child: Stack(children: <Widget>[
-                                      Align(
-                                        alignment: Alignment.centerRight,
-                                        child: Stack(
-                                          children: <Widget>[
-                                            Padding(
-                                                padding: const EdgeInsets.only(
-                                                    left: 5, top: 5),
-                                                child: Column(
-                                                  children: <Widget>[
-                                                    Row(
-                                                      children: <Widget>[
-                                                        cryptoIcon(
-                                                            cryptoData[index]),
-                                                        SizedBox(
-                                                          height: 10,
-                                                        ),
-                                                        // Spacer(),
-                                                        cryptoChange(
-                                                            cryptoData[index]),
-                                                        SizedBox(
-                                                          width: 10,
-                                                        ),
-                                                        SizedBox(
-                                                          width: 20,
-                                                        )
-                                                      ],
-                                                    ),
-                                                  ],
-                                                ))
-                                          ],
-                                        ),
-                                      )
-                                    ]),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context)
+                                        .push(MaterialPageRoute(
+                                      builder: (context) =>
+                                          ChapterPage(chapter: chapter),
+                                    ));
+                                  },
+                                  child: Container(
+                                    child: Padding(
+                                      padding: EdgeInsets.all(7),
+                                      child: Stack(children: <Widget>[
+                                        Align(
+                                          alignment: Alignment.centerRight,
+                                          child: Stack(
+                                            children: <Widget>[
+                                              Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 5, top: 5),
+                                                  child: Column(
+                                                    children: <Widget>[
+                                                      Row(
+                                                        children: <Widget>[
+                                                          cryptoIcon(cryptoData[
+                                                              index]),
+                                                          SizedBox(
+                                                            height: 10,
+                                                          ),
+                                                          // Spacer(),
+                                                          cryptoChange(
+                                                              cryptoData[
+                                                                  index]),
+                                                          SizedBox(
+                                                            width: 10,
+                                                          ),
+                                                          SizedBox(
+                                                            width: 20,
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ))
+                                            ],
+                                          ),
+                                        )
+                                      ]),
+                                    ),
                                   ),
                                 ),
                               ),

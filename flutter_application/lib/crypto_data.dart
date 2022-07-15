@@ -1,41 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/chapter.dart';
 
 class CryptoData {
   static final getData = [
     {
       'image': "assets/images/card1.png",
-      'change': 'Human Physiology',
-      'changeValue': '24 Chapters',
+      'change': 'Community Medicine',
+      'changeValue': '14 Chapters',
     },
     {
       'image': "assets/images/card1.png",
-      'change': 'Orthopaedics',
-      'changeValue': '32 Chapters',
+      'change': 'Pathology',
+      'changeValue': '9 Chapters',
     },
     {
       'image': "assets/images/card1.png",
-      'change': 'Dermatology',
-      'changeValue': '11 Chapters',
+      'change': 'Pharmacology',
+      'changeValue': '3 Chapters',
     },
     {
       'image': "assets/images/card1.png",
-      'change': 'Gynaecology',
-      'changeValue': '22 Chapters',
-    },
-    {
-      'image': "assets/images/card1.png",
-      'change': 'Biochemistry',
-      'changeValue': '10 Chapters',
-    },
-    {
-      'image': "assets/images/card1.png",
-      'change': 'General Medicine',
-      'changeValue': '103 Cards',
-    },
-    {
-      'image': "assets/images/card1.png",
-      'change': 'Endocrinology',
-      'changeValue': '12 Chapters',
+      'change': 'Microbiology',
+      'changeValue': '17 Chapters',
     },
   ];
 }
