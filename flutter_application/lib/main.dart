@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         unselectedWidgetColor: Colors.white,
       ),
-      // home: MyHomePage(title: 'Revisable'),
-      home: Main1(),
+      home: MyHomePage(title: 'Revisable'),
+      // home: Main1(),
       routes: {
         '/Signup1': (context) => Signup1(),
         '/Signup2': (context) => Signup2(),
@@ -1865,23 +1865,23 @@ class Main1 extends StatelessWidget {
         chapter: ['Chapter', 'Chapter', 'Chapter'],
         number: 3),
     const Chapter(subject: [
-      'bacteriology',
-      'microbiology',
-      'virology',
-      'labrotatory diagnosis of viral infections',
-      'common test for bacterial identifications',
-      'common laboratory methods for diagnosis of fungal infections',
-      'bacterial and viral genetics',
-      'collection of transport of samples',
-      'microorganisms associated with gastrointestinal infection',
-      'sterilisation and disinfection',
-      'gastrointestinal infections casued by parasites',
-      'mycology',
-      'parasitology',
-      'vaccines',
-      'host-parasite relationship',
-      'immunodiagnosis',
-      'bacterial staining and cultivation'
+      'Bacteriology',
+      'Microbiology',
+      'Virology',
+      'Labrotatory Diagnosis of Viral Infections',
+      'Common Test for Bacterial Identifications',
+      'Common Laboratory Methods for Diagnosis of Fungal Infections',
+      'Bacterial and Viral Genetics',
+      'Collection of Transport of Samples',
+      'Micro-organisms Associated with Gastrointestinal Infection',
+      'Sterilisation and Disinfection',
+      'Gastrointestinal Infections Caused by Parasites',
+      'Mycology',
+      'Parasitology',
+      'Vaccines',
+      'Host-Parasite Relationship',
+      'Immunodiagnosis',
+      'Bacterial Staining and Cultivation'
     ], chapter: [
       'Chapter',
       'Chapter',
@@ -1900,7 +1900,6 @@ class Main1 extends StatelessWidget {
       'Chapter',
       'Chapter',
       'Chapter',
-    
     ], number: 17),
   ];
   @override
@@ -2105,6 +2104,7 @@ class Main1 extends StatelessWidget {
                           itemCount: cryptoData.length,
                           itemBuilder: (context, index) {
                             final chapter = chapters[index];
+
                             return Container(
                               padding: EdgeInsets.fromLTRB(20, 10, 16, 0),
                               height: 100,
