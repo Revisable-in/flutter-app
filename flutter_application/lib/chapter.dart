@@ -112,9 +112,9 @@ class ChapterPage extends StatelessWidget {
                               },
                             ),
                             Padding(
-                              padding: EdgeInsets.fromLTRB(15, 0, 195, 0),
+                              padding: EdgeInsets.fromLTRB(15, 0, 0, 0),
                               child: Text(
-                                "Courses",
+                                chapter.topic,
                                 style: TextStyle(
                                   fontFamily: "Raleway",
                                   fontSize: 24.0,
@@ -123,10 +123,16 @@ class ChapterPage extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                              child: Image(
-                                image: AssetImage("assets/images/profile.png"),
+                            Flexible(
+                              child: Padding(
+                                padding: EdgeInsets.only(right: 16.3),
+                                child: Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Image(
+                                    image:
+                                        AssetImage("assets/images/profile.png"),
+                                  ),
+                                ),
                               ),
                             ),
                           ],
@@ -191,45 +197,54 @@ class ChapterPage extends StatelessWidget {
                                                         Padding(
                                                           padding:
                                                               EdgeInsets.only(
-                                                                  left: 50),
-                                                          child: RichText(
-                                                            text: TextSpan(
-                                                              text: chapter
-                                                                      .subject[
-                                                                  index],
-                                                              style: TextStyle(
-                                                                  fontFamily:
-                                                                      "Raleway",
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w900,
-                                                                  color: Color
-                                                                      .fromARGB(
-                                                                          255,
-                                                                          4,
-                                                                          35,
-                                                                          93),
-                                                                  fontSize: 14),
-                                                              children: <
-                                                                  TextSpan>[
-                                                                TextSpan(
-                                                                    text: "\n"),
-                                                                TextSpan(
-                                                                    text: chapter
-                                                                            .chapter[
-                                                                        index],
-                                                                    style:
-                                                                        TextStyle(
-                                                                      color: Color
-                                                                          .fromARGB(
-                                                                              255,
-                                                                              4,
-                                                                              35,
-                                                                              93),
-                                                                      fontSize:
-                                                                          12,
-                                                                    )),
-                                                              ],
+                                                            left: 50,
+                                                          ),
+                                                          child: SizedBox(
+                                                            width: 200,
+                                                            child: RichText(
+                                                              text: TextSpan(
+                                                                text: chapter
+                                                                        .subject[
+                                                                    index],
+                                                                style: TextStyle(
+                                                                    fontFamily:
+                                                                        "Raleway",
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w900,
+                                                                    color: Color
+                                                                        .fromARGB(
+                                                                            255,
+                                                                            4,
+                                                                            35,
+                                                                            93),
+                                                                    fontSize:
+                                                                        14),
+                                                                children: <
+                                                                    TextSpan>[
+                                                                  TextSpan(
+                                                                      text:
+                                                                          "\n"),
+                                                                  TextSpan(
+                                                                      text: chapter
+                                                                              .chapter[
+                                                                          index],
+                                                                      style:
+                                                                          TextStyle(
+                                                                        color: Color.fromARGB(
+                                                                            255,
+                                                                            4,
+                                                                            35,
+                                                                            93),
+                                                                        fontSize:
+                                                                            12,
+                                                                        fontFamily:
+                                                                            "Raleway",
+                                                                        fontWeight:
+                                                                            FontWeight.w500,
+                                                                      )),
+                                                                ],
+                                                              ),
                                                             ),
                                                           ),
                                                         ),

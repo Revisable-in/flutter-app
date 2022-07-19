@@ -52,6 +52,8 @@ flutter:
           weight: 900
         - asset: assets/fonts/Raleway-Regular.ttf
           weight: 400
+        - asset: assets/fonts/Raleway-ExtraLight.ttf  
+          weight: 200
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

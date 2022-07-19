@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         unselectedWidgetColor: Colors.white,
       ),
-      home: MyHomePage(title: 'Revisable'),
-      // home: Main1(),
+      // home: MyHomePage(title: 'Revisable'),
+      home: Main1(),
       routes: {
         '/Signup1': (context) => Signup1(),
         '/Signup2': (context) => Signup2(),
@@ -37,11 +37,13 @@ class Chapter {
   final List subject;
   final List chapter;
   final int number;
+  final String topic;
 
   const Chapter({
     required this.subject,
     required this.chapter,
     required this.number,
+    required this.topic,
   });
 }
 
@@ -1838,7 +1840,7 @@ class Main1 extends StatelessWidget {
       'Chapter',
       'Chapter',
       'Chapter',
-    ], number: 14),
+    ], number: 14, topic: 'Community Medicine'),
     const Chapter(subject: [
       'General Pharmacology',
       'Autacoids',
@@ -1859,11 +1861,12 @@ class Main1 extends StatelessWidget {
       'Chapter',
       'Chapter',
       'Chapter',
-    ], number: 9),
+    ], number: 9, topic: 'Topic'),
     const Chapter(
         subject: ['Systematic Pathology', 'General Pathology', 'Practical'],
         chapter: ['Chapter', 'Chapter', 'Chapter'],
-        number: 3),
+        number: 3,
+        topic: 'Pharmacology'),
     const Chapter(subject: [
       'Bacteriology',
       'Microbiology',
@@ -1900,7 +1903,7 @@ class Main1 extends StatelessWidget {
       'Chapter',
       'Chapter',
       'Chapter',
-    ], number: 17),
+    ], number: 17, topic: 'Microbiology'),
   ];
   @override
   Widget build(BuildContext context) {
@@ -2202,6 +2205,8 @@ class Main1 extends StatelessWidget {
                 style: TextStyle(
                   color: Color.fromARGB(255, 4, 35, 93),
                   fontSize: 12,
+                  fontFamily: "Raleway",
+                  fontWeight: FontWeight.w500,
                 )),
           ],
         ),
