@@ -1,6 +1,8 @@
 import 'package:flutter_application/chapter.dart';
 
 import 'crypto_data.dart';
+import 'topic1.dart';
+import 'topic2.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,6 +30,7 @@ class MyApp extends StatelessWidget {
         '/Login': (context) => Login(),
         '/Main1': (context) => Main1(),
         '/Main2': (context) => Main2(),
+        '/Main3': (context) => Main3(),
       },
     );
   }
@@ -81,6 +84,27 @@ class Signup3 extends StatefulWidget {
 class Signup4 extends StatefulWidget {
   @override
   _Signup4State createState() => _Signup4State();
+}
+
+class Main1 extends StatefulWidget {
+  const Main1({Key? key}) : super(key: key);
+
+  @override
+  State<Main1> createState() => _Main1State();
+}
+
+class Main2 extends StatefulWidget {
+  const Main2({Key? key}) : super(key: key);
+
+  @override
+  State<Main2> createState() => _Main2State();
+}
+
+class Main3 extends StatefulWidget {
+  const Main3({Key? key}) : super(key: key);
+
+  @override
+  State<Main3> createState() => _Main3State();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -1540,291 +1564,63 @@ class Started extends StatelessWidget {
 
 //-------------------------------------------------------------------MAIN-1-------------------------------------------------------------------
 
-class Main2 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Color.fromARGB(255, 245, 244, 255),
-        bottomNavigationBar: new Theme(
-          data: Theme.of(context).copyWith(
-              // sets the background color of the `BottomNavigationBar`
-              canvasColor: Color.fromARGB(255, 4, 35, 93),
-              // sets the active color of the `BottomNavigationBar` if `Brightness` is light
-              primaryColor: Colors.red,
-              textTheme: Theme.of(context).textTheme.copyWith(
-                  caption: new TextStyle(
-                      color: Colors
-                          .yellow))), // sets the inactive color of the `BottomNavigationBar`
-          child: new BottomNavigationBar(
-            showSelectedLabels: false,
-            showUnselectedLabels: false,
-            type: BottomNavigationBarType.fixed,
-            currentIndex: 0,
-            items: [
-              BottomNavigationBarItem(
-                icon: Image(
-                  image: AssetImage("assets/images/openbook.png"),
-                ),
-                label: " ",
-              ),
-              BottomNavigationBarItem(
-                icon: Image(
-                  image: AssetImage("assets/images/firstaid.png"),
-                ),
-                label: "aid",
-              ),
-              BottomNavigationBarItem(
-                icon: Image(
-                  image: AssetImage("assets/images/house.png"),
-                ),
-                label: "Home",
-              ),
-              BottomNavigationBarItem(
-                icon: Image(
-                  image: AssetImage("assets/images/screen.png"),
-                ),
-                label: "screen",
-              ),
-              BottomNavigationBarItem(
-                icon: Image(
-                  image: AssetImage("assets/images/question.png"),
-                ),
-                label: "Help",
-              ),
-            ],
-          ),
-        ),
-        body: Stack(fit: StackFit.expand, children: [
-          Positioned(
-            top: 35.0,
-            left: 20,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    GestureDetector(
-                      child: Image(
-                        image: AssetImage("assets/images/backbutton.png"),
-                      ),
-                      onTap: () {
-                        Navigator.pushNamed(context, '/Started');
-                      },
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(15, 0, 195, 0),
-                      child: Text(
-                        "Courses",
-                        style: TextStyle(
-                          fontFamily: "Raleway",
-                          fontSize: 24.0,
-                          fontWeight: FontWeight.bold,
-                          color: Color.fromARGB(255, 4, 35, 93),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                      child: Image(
-                        image: AssetImage("assets/images/profile.png"),
-                      ),
-                    ),
-                  ],
-                ),
-                Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(right: 30, top: 25, bottom: 20),
-                      child: DecoratedBox(
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(colors: [
-                              Color.fromARGB(255, 55, 213, 214),
-                              Color.fromARGB(255, 94, 41, 159),
-                              //add more colors
-                            ]),
-                            borderRadius: BorderRadius.circular(40),
-                          ),
-                          child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                primary: Colors.transparent,
-                                onSurface: Colors.transparent,
-                                shadowColor: Colors.transparent,
-                                //make color or elevated button transparent
-                              ),
-                              onPressed: () {
-                                print("You pressed Elevated Button");
-                              },
-                              child: Padding(
-                                padding: EdgeInsets.only(
-                                  top: 12,
-                                  bottom: 12,
-                                ),
-                                child: Text("All Courses"),
-                              ))),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(right: 30, top: 25, bottom: 20),
-                      child: DecoratedBox(
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(colors: [
-                              Color.fromARGB(255, 55, 213, 214),
-                              Color.fromARGB(255, 94, 41, 159),
-                              //add more colors
-                            ]),
-                            borderRadius: BorderRadius.circular(40),
-                          ),
-                          child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                primary: Colors.transparent,
-                                onSurface: Colors.transparent,
-                                shadowColor: Colors.transparent,
-                                //make color or elevated button transparent
-                              ),
-                              onPressed: () {
-                                print("You pressed Elevated Button");
-                              },
-                              child: Padding(
-                                padding: EdgeInsets.only(
-                                  top: 12,
-                                  bottom: 12,
-                                ),
-                                child: Text("2nd Year"),
-                              ))),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(right: 20, top: 25, bottom: 20),
-                      child: DecoratedBox(
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(colors: [
-                              Color.fromARGB(255, 55, 213, 214),
-                              Color.fromARGB(255, 94, 41, 159),
-                              //add more colors
-                            ]),
-                            borderRadius: BorderRadius.circular(40),
-                          ),
-                          child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                primary: Colors.transparent,
-                                onSurface: Colors.transparent,
-                                shadowColor: Colors.transparent,
-                                //make color or elevated button transparent
-                              ),
-                              onPressed: () {
-                                print("You pressed Elevated Button");
-                              },
-                              child: Padding(
-                                padding: EdgeInsets.only(
-                                  top: 12,
-                                  bottom: 12,
-                                ),
-                                child: Text("Starred"),
-                              ))),
-                    ),
-                  ],
-                ),
-                Card(
-                  elevation: 30,
-                  shadowColor: Colors.black,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  color: Colors.white,
-                  child: SizedBox(
-                    width: 370,
-                    height: 80,
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(10.0, 5, 5, 5),
-                      child: Row(
-                        children: [
-                          Image(image: AssetImage("assets/images/card1.png")),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Column(
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(left: 40, top: 14),
-                                child: Text(
-                                  'Human Physiology',
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontFamily: "Raleway",
-                                    color: Color.fromARGB(255, 4, 35, 93),
-                                    fontWeight: FontWeight.w900,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 10,
-                                width: 10,
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(right: 20),
-                                child: Text(
-                                  '24 Chapters',
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    color: Color.fromARGB(255, 4, 35, 93),
-                                  ), //Textstyle
-                                ), //Text
-                              ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-
-                              // SizedBox(
-                              //   width: 100,
-                              //   child: ElevatedButton(
-                              //     onPressed: () => 'Null',
-                              //     style: ButtonStyle(
-                              //         backgroundColor:
-                              //             MaterialStateProperty.all(
-                              //                 Colors.green)),
-                              //     child: Padding(
-                              //       padding: const EdgeInsets.all(4),
-                              //       child: Row(
-                              //         children: const [
-                              //           Icon(Icons.touch_app),
-                              //           Text('Visit')
-                              //         ],
-                              //       ),
-                              //     ),
-                              //   ),
-                              // ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ]));
-  }
-}
-
 //-------------------------------------------------------------------------------------------------------------------------------------------
 
-class Main1 extends StatelessWidget {
+class _Main1State extends State<Main1> {
   var cryptoData = CryptoData.getData;
   List<Chapter> chapters = [
     const Chapter(subject: [
-      'Infestations',
-      'Infective Dermatoses',
-      'Allergic Disorders',
-      'Melanin Synthesis',
-      'Urticaria',
-      'Epidermopoiesis',
-      'Pathogenesis',
-      'Psoriasis',
-      'Gonococcal and Non-Gonococcal Infections',
-      'HIV Infections',
-      'Drug Eruptions',
-      'Dermatological Emergencies',
-      'Vesiculo-Bullous Diseases',
-      'Erthema Multiforme'
+      'General features of bones & Joints',
+      'General features of Muscle',
+      'General features of skin and fascia',
+      'General features of the cardiovascular system',
+      'General Features of lymphatic system',
+      'Introduction to the nervous system',
+      'Features of individual bones (Upper Limb)',
+      'Pectoral region',
+      'Axilla, Shoulder and Scapular region',
+      'Arm & Cubital fossa',
+      'Forearm & hand',
+      'General Features, Joints, radiographs & surface marking',
+      'Features of individual bones (Lower Limb)',
+      'Front & Medial side of thigh',
+      'Gluteal region & back of thigh',
+      'Hip Joint',
+      'Knee joint, Anterolateral compartment of leg & dorsum of foot',
+      'Back of Leg & Sole',
+      'General Features, Joints, radiographs & surface marking',
+      'Thoracic cage',
+      'Heart & Pericardium',
+      'Mediastinum',
+      'Lungs & Trachea',
+      'Thorax',
+      'Skull osteology',
+      'Scalp',
+      'Face & parotid region',
+      'Posterior triangle of neck',
+      'Cranial cavity',
+      'Orbit',
+      'Anterior Triangle',
+      'Temporal and Infratemporal regions',
+      'Submandibular region',
+      'Deep structures in the neck',
+      'Mouth, Pharynx & Palate',
+      'Cavity of Nose',
+      'Larynx',
+      'Tongue',
+      'Organs of hearing and equilibrium',
+      'Eyeball',
+      'Back Region',
+      'Head & neck Joints, Histology, Development, Radiography & Surface marking',
+      'Anterior abdominal wall',
+      'Posterior abdominal wall',
+      'Male external genitalia',
+      'Abdominal cavity',
+      'Pelvic wall and viscera',
+      'Perineum',
+      'Vertebral column',
+      'Sectional Anatomy',
+      'Histology & Embryology'
     ], chapter: [
       'Chapter',
       'Chapter',
@@ -1840,17 +1636,203 @@ class Main1 extends StatelessWidget {
       'Chapter',
       'Chapter',
       'Chapter',
-    ], number: 14, topic: 'Community Medicine'),
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter'
+    ], number: 51, topic: 'Human Anatomy'),
     const Chapter(subject: [
-      'General Pharmacology',
-      'Autacoids',
-      'Gastrointestinal and Respiratory Systems',
-      'Cardiovascular System',
-      'Hormones',
-      'Miscellaneous',
+      'Osteology',
+      'Radiodiagnosis',
+      'Surface marking',
+      'Meninges & CSF',
+      'Spinal Cord',
+      'Medulla Oblongata',
+      'Pons',
+      'Cerebellum',
+      'Midbrain',
+      'Cranial nerve nuclei & Cerebral hemispheres',
+      'Ventricular System',
+      'Histology & Embryology',
+      'Epithelium histology',
+      'Connective tissue histology',
+      'Muscle histology',
+      'Nervous tissue histology',
+      'Blood Vessels',
+      'Glands & Lymphoid tissue',
+      'Bone & Cartilage',
+      'Integumentary System',
+      'Chromosomes',
+      'Patterns of Inheritance',
+      'Principle of Genetics, Chromosomal Aberrations & Clinical Genetics',
+      'Introduction to embryology',
+      'Gametogenesis and fertilization',
+      'Second week of development',
+      '3rd to 8th week of development',
+      'Fetal membranes',
+      'Prenatal Diagnosis',
+      'Ethics in Anatomy',
+      'General Physiology',
+      'Haematology',
+      'Nerve and Muscle Physiology',
+      'Gastro-intestinal Physiology',
+      'Cardiovascular Physiology (CVS)',
+      'Respiratory Physiology',
+      'Renal Physiology',
+      'Endocrine Physiology',
+      'Reproductive Physiology',
+      'Neurophysiology',
+      'Integrated Physiology'
+    ], chapter: [
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter'
+    ], number: 41, topic: 'Physiology'),
+    const Chapter(subject: [
+      'Basic Biochemistry',
+      'Enzyme',
+      'Chemistry and Metabolism of Carbohydrates',
+      'Chemistry and Metabolism of Lipids',
+      'Chemistry and Metabolism of Proteins',
+      'Metabolism and homeostasis',
+      'Molecular Biology',
+      'Nutrition',
+      'Extracellular Matrix',
+      'Oncogenesis and immunity',
+      'Biochemical Laboratory Tests'
+    ], chapter: [
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+    ], number: 11, topic: 'Biochemistry'),
+    const Chapter(subject: [
+      'Pharmacology',
+      'Clinical Pharmacy',
+      'Clinical Pharmacology',
+      'Experimental Pharmacology',
+      'Pharmacology'
+    ], chapter: [
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+    ], number: 5, topic: 'Pharmacology'),
+    const Chapter(subject: [
+      'Introduction to Pathology',
+      'Cell Injury and Adaptation',
+      'Amyloidosis',
+      'Inflammation',
+      'Healing and repair',
+      'Hemodynamic disorders',
+      'Neoplastic disorders',
+      'Basic diagnostic cytology',
+      'Immunopathology and AIDS',
+      'Infections and Infestations',
+      'Genetic and paediatric diseases',
+      'Environmental and nutritional diseases',
+      'Introduction to haematology',
+      'Microcytic anemia',
+      'Macrocytic anemia',
+      'Hemolytic anemia',
+      'Aplastic anemia',
+      'Leukocyte disorders',
+      'Lymph node and spleen',
+      'Hemorrhagic disorders',
+      'Blood banking and transfusion',
+      'Clinical Pathology',
+      'Gastrointestinal tract',
+      'Hepatobiliary system',
+      'Respiratory system',
+      'Cardiovascular system',
+      'Urinary Tract',
+      'Male Genital Tract',
+      'Female Genital Tract',
+      'Breast',
+      'Endocrine system',
+      'Bone and soft tissue',
+      'Skin',
       'Central Nervous System',
-      'Autonomic Nervous System & the Peripheral Nervous System',
-      'Chemotherapy'
+      'Eye'
     ], chapter: [
       'Chapter',
       'Chapter',
@@ -1861,30 +1843,66 @@ class Main1 extends StatelessWidget {
       'Chapter',
       'Chapter',
       'Chapter',
-    ], number: 9, topic: 'Topic'),
-    const Chapter(
-        subject: ['Systematic Pathology', 'General Pathology', 'Practical'],
-        chapter: ['Chapter', 'Chapter', 'Chapter'],
-        number: 3,
-        topic: 'Pharmacology'),
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter'
+    ], number: 35, topic: 'Pathology'),
     const Chapter(subject: [
-      'Bacteriology',
-      'Microbiology',
-      'Virology',
-      'Labrotatory Diagnosis of Viral Infections',
-      'Common Test for Bacterial Identifications',
-      'Common Laboratory Methods for Diagnosis of Fungal Infections',
-      'Bacterial and Viral Genetics',
-      'Collection of Transport of Samples',
-      'Micro-organisms Associated with Gastrointestinal Infection',
-      'Sterilisation and Disinfection',
-      'Gastrointestinal Infections Caused by Parasites',
-      'Mycology',
-      'Parasitology',
-      'Vaccines',
-      'Host-Parasite Relationship',
-      'Immunodiagnosis',
-      'Bacterial Staining and Cultivation'
+      'General Microbiology and Immunity',
+      'CVS and Blood',
+      'Gastrointestinal and hepatobiliary system',
+      'Musculoskeletal system skin and soft tissue infections',
+      'Central Nervous System infections',
+      'Respiratory tract infections',
+      'Genitourinary & Sexually transmitted infections',
+      'Zoonotic diseases and miscellaneous'
+    ], chapter: [
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+    ], number: 8, topic: 'Microbiology'),
+    const Chapter(subject: [
+      'Forensic Pathology',
+      'Clinical Forensic Medicine',
+      'Medical Jurisprudence (Medical Law and ethics)',
+      'Forensic Psychiatry',
+      'Forensic Laboratory investigation in medical legal practice',
+      'Emerging technologies in Forensic Medicine',
+      'Toxicology: General Toxicology',
+      'Toxicology : Chemical Toxicology',
+      'Toxicology : Pharmaceutical Toxicology',
+      'Toxicology : Biotoxicology',
+      'Toxicology : Sociomedical Toxicology',
+      'Toxicology : Environmental Toxicology',
+      'Skills in Forensic Medicine & Toxicology'
     ], chapter: [
       'Chapter',
       'Chapter',
@@ -1899,12 +1917,9 @@ class Main1 extends StatelessWidget {
       'Chapter',
       'Chapter',
       'Chapter',
-      'Chapter',
-      'Chapter',
-      'Chapter',
-      'Chapter',
-    ], number: 17, topic: 'Microbiology'),
+    ], number: 13, topic: 'Forensic Medicine & Toxicology'),
   ];
+  String dropdownValue = '          First       ';
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -1994,11 +2009,16 @@ class Main1 extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              Padding(
-                                padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                                child: Image(
-                                  image:
-                                      AssetImage("assets/images/profile.png"),
+                              Flexible(
+                                child: Padding(
+                                  padding: EdgeInsets.only(right: 16.3),
+                                  child: Align(
+                                    alignment: Alignment.centerRight,
+                                    child: Image(
+                                      image: AssetImage(
+                                          "assets/images/profile.png"),
+                                    ),
+                                  ),
                                 ),
                               ),
                             ],
@@ -2029,16 +2049,16 @@ class Main1 extends StatelessWidget {
                                         },
                                         child: Padding(
                                           padding: EdgeInsets.only(
-                                            top: 12,
-                                            bottom: 12,
+                                            top: 15.5,
+                                            bottom: 15.5,
                                           ),
                                           child: Text("All Courses"),
                                         ))),
                               ),
                               Padding(
-                                padding: EdgeInsets.only(
-                                    right: 30, top: 20, bottom: 10),
-                                child: DecoratedBox(
+                                  padding: EdgeInsets.only(
+                                      right: 30, top: 20, bottom: 10),
+                                  child: DecoratedBox(
                                     decoration: BoxDecoration(
                                       gradient: LinearGradient(colors: [
                                         Color.fromARGB(255, 55, 213, 214),
@@ -2047,24 +2067,83 @@ class Main1 extends StatelessWidget {
                                       ]),
                                       borderRadius: BorderRadius.circular(40),
                                     ),
-                                    child: ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          primary: Colors.transparent,
-                                          onSurface: Colors.transparent,
-                                          shadowColor: Colors.transparent,
-                                          //make color or elevated button transparent
+                                    child: DropdownButtonHideUnderline(
+                                      child: DropdownButton<String>(
+                                        value: dropdownValue,
+                                        elevation: 16,
+                                        icon: Visibility(
+                                            visible: false,
+                                            child: Icon(Icons.arrow_downward)),
+                                        iconSize: 24,
+                                        style: const TextStyle(
+                                            color: Colors.deepPurple),
+                                        underline: Container(
+                                          height: 2,
+                                          color: Colors.deepPurpleAccent,
                                         ),
-                                        onPressed: () {
-                                          print("You pressed Elevated Button");
+                                        onChanged: (String? newValue) {
+                                          if (newValue != dropdownValue) {
+                                            switch (newValue) {
+                                              case '          First       ':
+                                                Navigator.pushNamed(
+                                                    context, '/Main1');
+                                                break;
+                                              case '       Second       ':
+                                                Navigator.pushNamed(
+                                                    context, '/Main2');
+                                                break;
+                                              case '         Third       ':
+                                                Navigator.pushNamed(
+                                                    context, '/Main3');
+                                                break;
+                                            }
+                                          }
+
+                                          setState(() {
+                                            dropdownValue = newValue!;
+                                          });
                                         },
-                                        child: Padding(
-                                          padding: EdgeInsets.only(
-                                            top: 12,
-                                            bottom: 12,
-                                          ),
-                                          child: Text("2nd Year"),
-                                        ))),
-                              ),
+                                        items: <String>[
+                                          '          First       ',
+                                          '       Second       ',
+                                          '         Third       ',
+                                        ].map<DropdownMenuItem<String>>(
+                                            (String value) {
+                                          if (value == dropdownValue) {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Padding(
+                                                padding: EdgeInsets.only(
+                                                  top: 0,
+                                                  bottom: 0,
+                                                ),
+                                                child: Text(
+                                                  value,
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                              ),
+                                            );
+                                          } else {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Padding(
+                                                padding: EdgeInsets.only(
+                                                  top: 0,
+                                                  bottom: 0,
+                                                ),
+                                                child: Text(
+                                                  value,
+                                                  style: TextStyle(
+                                                      color: Colors.black),
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                        }).toList(),
+                                      ),
+                                    ),
+                                  )),
                               Padding(
                                 padding: EdgeInsets.only(
                                     right: 20, top: 20, bottom: 10),
@@ -2089,8 +2168,8 @@ class Main1 extends StatelessWidget {
                                         },
                                         child: Padding(
                                           padding: EdgeInsets.only(
-                                            top: 12,
-                                            bottom: 12,
+                                            top: 15.5,
+                                            bottom: 15.5,
                                           ),
                                           child: Text("Starred"),
                                         ))),
@@ -2191,24 +2270,1319 @@ class Main1 extends StatelessWidget {
   Widget cryptoChange(data) {
     return Padding(
       padding: EdgeInsets.only(left: 50),
-      child: RichText(
-        text: TextSpan(
-          text: '${data['change']}',
-          style: TextStyle(
-              fontFamily: "Raleway",
-              fontWeight: FontWeight.w900,
-              color: Color.fromARGB(255, 4, 35, 93),
-              fontSize: 14),
-          children: <TextSpan>[
-            TextSpan(
-                text: '\n${data['changeValue']}',
-                style: TextStyle(
-                  color: Color.fromARGB(255, 4, 35, 93),
-                  fontSize: 12,
-                  fontFamily: "Raleway",
-                  fontWeight: FontWeight.w500,
-                )),
-          ],
+      child: SizedBox(
+        width: 200,
+        child: RichText(
+          text: TextSpan(
+            text: '${data['change']}',
+            style: TextStyle(
+                fontFamily: "Raleway",
+                fontWeight: FontWeight.w900,
+                color: Color.fromARGB(255, 4, 35, 93),
+                fontSize: 14),
+            children: <TextSpan>[
+              TextSpan(
+                  text: '\n${data['changeValue']}',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 4, 35, 93),
+                    fontSize: 12,
+                    fontFamily: "Raleway",
+                    fontWeight: FontWeight.w500,
+                  )),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+//--------------------------------------------------------------MAIN 2---------------------------------------------------------------------------
+
+class _Main2State extends State<Main2> {
+  var cryptoData = CryptoData1.getData;
+  List<Chapter> chapters = [
+    const Chapter(subject: [
+      'Concept of Health and Disease',
+      'Relationship of social and behavioural to health and disease',
+      'Environmental Health Problems',
+      'Principles of health promotion and education',
+      'Nutrition',
+      'Basic statistics and its applications',
+      'Epidemiology',
+      'Epidemiology of communicable and non- communicable diseases',
+      'Demography and vital statistics',
+      'Reproductive maternal and child health',
+      'Occupational Health',
+      'Geriatric services',
+      'Disaster Management',
+      'Hospital waste management',
+      'Mental Health',
+      'Health planning and management',
+      'Health care of the communtiy',
+      'International Health',
+      'Essential Medicine',
+      'Recent advances in Community Medicine'
+    ], chapter: [
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter'
+    ], number: 18, topic: 'Community Medicine'),
+    const Chapter(subject: [
+      'Heart Failure',
+      'Acute Myocardial Infarction/ IHD',
+      'Pneumonia',
+      'Fever and febrile syndromes',
+      'Liver disease',
+      'HIV',
+      'Rheumatologic problems',
+      'Hypertension',
+      'Anemia',
+      'Acute Kidney Injury and Chronic renal failure',
+      'Diabetes Mellitus',
+      'Thyroid dysfunction',
+      'Common malignancies',
+      'Obesity',
+      'GI bleeding',
+      'Diarrheal disorder',
+      'Headache',
+      'Cerebrovascular accident',
+      'Movement disorders',
+      'Envenomation',
+      'Poisoning',
+      'Mineral, Fluid Electrolyte and Acid base Disorder',
+      'Nutritional and Vitamin Deficiencies'
+    ], chapter: [
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter'
+    ], number: 21, topic: 'General Medicine'),
+    const Chapter(subject: [
+      'Geriatrics',
+      'Miscellaneous Infections',
+      'The role of the physician in the community',
+      'Obstructive airway disease'
+    ], chapter: [
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+    ], number: 4, topic: 'Respiratory Medicine'),
+    const Chapter(subject: [
+      'Common problems related to Growth',
+      'Common problems related to Development -1 (Developmental delay , Cerebral palsy)',
+      'Common problems related to Development-2 (Scholastic backwardness, Learning Disabilities , Autism , ADHD)',
+      'Common problems related to behavior',
+      'Adolescent Health & common problems related to Adolescent Health',
+      'To promote and support optimal Breast feeding for Infants',
+      'Complementary Feeding',
+      'Normal nutrition, assessment and monitoring',
+      'Provide nutritional support , assessment and monitoring for common nutritional problems',
+      'Obesity in children',
+      'Micronutrients in Health and disease-1 (Vitamins ADEK, B Complex and C)',
+      'Micronutrients in Health and disease -2: Iron, Iodine, Calcium, Magnesium',
+      'Toxic elements and free radicals and oxygen toxicity',
+      'Fluid and electrolyte balance',
+      'Integrated Management of Neonatal and Childhood Illnesses (IMNCI) Guideline',
+      'The National Health Programs: RCH',
+      'National Programs, RCH - Universal Immunizations program',
+      'Care of the Normal New born, and High risk New born',
+      'Genito-Urinary system',
+      'Approach to and recognition of a child with possible Rheumatologic problem',
+      'Cardiovascular system- Heart Diseases',
+      'Diarrhoeal diseases and Dehydration',
+      'Malabsorption',
+      'Acute and chronic liver disorders',
+      'Pediatric Emergencies – Common Pediatric Emergencies',
+      'Respiratory system',
+      'Anemia and other Hemato-oncologic disorders in children',
+      'Systemic Pediatrics-Central Nervous system',
+      'Allergic Rhinitis , Atopic Dermatitis, Bronchial Asthma , Urticaria Angioedema',
+      'Chromosomal Abnormalities',
+      'Endocrinology',
+      'Vaccine preventable Diseases - Tuberculosis'
+    ], chapter: [
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter'
+    ], number: 30, topic: 'Pediatrics'),
+    const Chapter(subject: [
+      'Mental health',
+      'Introduction to psychiatry',
+      'Psychotic disorders',
+      'Psychotic disorders',
+      'Depression',
+      'Bipolar disorders',
+      'Anxiety disorders',
+      'Stress related disorders',
+      'Somatoform disorders',
+      'Personality disorders',
+      'Psychosomatic disorders',
+      'Psychosexual and gender identity disorders',
+      'Psychiatric disorders in childhood and adolescence',
+      'Mental retardation',
+      'Psychiatric disorders in the elderly',
+      'Psychiatric emergencies',
+      'Therapeutics',
+      'Miscellaneous'
+    ], chapter: [
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter'
+    ], number: 16, topic: 'Psychiatry'),
+    const Chapter(subject: [
+      'Acne',
+      'Vitiligo',
+      'Papulosquamous disorders',
+      'Lichen Planus',
+      'Scabies',
+      'Pediculosis',
+      'Fungal Infections',
+      'Viral infections',
+      'Leprosy',
+      'Sexually Transmitted Diseases',
+      'HIV',
+      'Dermatitis and Eczema',
+      'Vesicubullous Lesions',
+      'Urticaria Angioedema',
+      'Pyoderma',
+      'Collagen Vascular disease',
+      'Nutritional Deficiencies and Skin',
+      'Systemic diseases and the skin'
+    ], chapter: [
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter'
+    ], number: 16, topic: 'Dermatology, Venereology & Leprosy'),
+    const Chapter(subject: [
+      'Introduction to Physical Medicine',
+      'Cerebrovascular accident',
+      'Cerebral Palsy',
+      'Musculoskeletal system',
+      'Amputation',
+      'Lower motor neruon lesion',
+      'Spinal injury',
+      'Traumatic brain injury (TBI)',
+      'Geriatrics'
+    ], chapter: [
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter'
+    ], number: 7, topic: 'Physical Medicine and Rehabilitation'),
+  ];
+  String dropdownValue = '       Second       ';
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+            backgroundColor: Color.fromARGB(255, 245, 244, 255),
+            bottomNavigationBar: new Theme(
+              data: Theme.of(context).copyWith(
+                  // sets the background color of the `BottomNavigationBar`
+                  canvasColor: Color.fromARGB(255, 4, 35, 93),
+                  // sets the active color of the `BottomNavigationBar` if `Brightness` is light
+                  primaryColor: Colors.red,
+                  textTheme: Theme.of(context).textTheme.copyWith(
+                      caption: new TextStyle(
+                          color: Colors
+                              .yellow))), // sets the inactive color of the `BottomNavigationBar`
+              child: new BottomNavigationBar(
+                showSelectedLabels: false,
+                showUnselectedLabels: false,
+                type: BottomNavigationBarType.fixed,
+                currentIndex: 0,
+                items: [
+                  BottomNavigationBarItem(
+                    icon: Image(
+                      image: AssetImage("assets/images/openbook.png"),
+                    ),
+                    label: " ",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Image(
+                      image: AssetImage("assets/images/firstaid.png"),
+                    ),
+                    label: "aid",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Image(
+                      image: AssetImage("assets/images/house.png"),
+                    ),
+                    label: "Home",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Image(
+                      image: AssetImage("assets/images/screen.png"),
+                    ),
+                    label: "screen",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Image(
+                      image: AssetImage("assets/images/question.png"),
+                    ),
+                    label: "Help",
+                  ),
+                ],
+              ),
+            ),
+            body: Stack(fit: StackFit.expand, children: [
+              Container(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(left: 20, top: 25),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              GestureDetector(
+                                child: Image(
+                                  image: AssetImage(
+                                      "assets/images/backbutton.png"),
+                                ),
+                                onTap: () {
+                                  Navigator.pushNamed(context, '/Started');
+                                },
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(15, 0, 195, 0),
+                                child: Text(
+                                  "Courses",
+                                  style: TextStyle(
+                                    fontFamily: "Raleway",
+                                    fontSize: 24.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color.fromARGB(255, 4, 35, 93),
+                                  ),
+                                ),
+                              ),
+                              Flexible(
+                                child: Padding(
+                                  padding: EdgeInsets.only(right: 16.3),
+                                  child: Align(
+                                    alignment: Alignment.centerRight,
+                                    child: Image(
+                                      image: AssetImage(
+                                          "assets/images/profile.png"),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    right: 30, top: 20, bottom: 10),
+                                child: DecoratedBox(
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(colors: [
+                                        Color.fromARGB(255, 55, 213, 214),
+                                        Color.fromARGB(255, 94, 41, 159),
+                                        //add more colors
+                                      ]),
+                                      borderRadius: BorderRadius.circular(40),
+                                    ),
+                                    child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          primary: Colors.transparent,
+                                          onSurface: Colors.transparent,
+                                          shadowColor: Colors.transparent,
+                                          //make color or elevated button transparent
+                                        ),
+                                        onPressed: () {
+                                          print("You pressed Elevated Button");
+                                        },
+                                        child: Padding(
+                                          padding: EdgeInsets.only(
+                                            top: 15.5,
+                                            bottom: 15.5,
+                                          ),
+                                          child: Text("All Courses"),
+                                        ))),
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.only(
+                                      right: 30, top: 20, bottom: 10),
+                                  child: DecoratedBox(
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(colors: [
+                                        Color.fromARGB(255, 55, 213, 214),
+                                        Color.fromARGB(255, 94, 41, 159),
+                                        //add more colors
+                                      ]),
+                                      borderRadius: BorderRadius.circular(40),
+                                    ),
+                                    child: DropdownButtonHideUnderline(
+                                      child: DropdownButton<String>(
+                                        value: dropdownValue,
+                                        elevation: 16,
+                                        icon: Visibility(
+                                            visible: false,
+                                            child: Icon(Icons.arrow_downward)),
+                                        iconSize: 24,
+                                        style: const TextStyle(
+                                            color: Colors.deepPurple),
+                                        underline: Container(
+                                          height: 2,
+                                          color: Colors.deepPurpleAccent,
+                                        ),
+                                        onChanged: (String? newValue) {
+                                          if (newValue != dropdownValue) {
+                                            switch (newValue) {
+                                              case '       Second       ':
+                                                Navigator.pushNamed(
+                                                    context, '/Main2');
+                                                break;
+                                              case '          First       ':
+                                                Navigator.pushNamed(
+                                                    context, '/Main1');
+                                                break;
+                                              case '         Third       ':
+                                                Navigator.pushNamed(
+                                                    context, '/Main3');
+                                                break;
+                                            }
+                                          }
+                                          setState(() {
+                                            dropdownValue = newValue!;
+                                          });
+                                        },
+                                        items: <String>[
+                                          '       Second       ',
+                                          '          First       ',
+                                          '         Third       '
+                                        ].map<DropdownMenuItem<String>>(
+                                            (String value) {
+                                          if (value == dropdownValue) {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Padding(
+                                                padding: EdgeInsets.only(
+                                                  top: 0,
+                                                  bottom: 0,
+                                                ),
+                                                child: Text(
+                                                  value,
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                              ),
+                                            );
+                                          } else {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Padding(
+                                                padding: EdgeInsets.only(
+                                                  top: 0,
+                                                  bottom: 0,
+                                                ),
+                                                child: Text(
+                                                  value,
+                                                  style: TextStyle(
+                                                      color: Colors.black),
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                        }).toList(),
+                                      ),
+                                    ),
+                                  )),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    right: 20, top: 20, bottom: 10),
+                                child: DecoratedBox(
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(colors: [
+                                        Color.fromARGB(255, 55, 213, 214),
+                                        Color.fromARGB(255, 94, 41, 159),
+                                        //add more colors
+                                      ]),
+                                      borderRadius: BorderRadius.circular(40),
+                                    ),
+                                    child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          primary: Colors.transparent,
+                                          onSurface: Colors.transparent,
+                                          shadowColor: Colors.transparent,
+                                          //make color or elevated button transparent
+                                        ),
+                                        onPressed: () {
+                                          print("You pressed Elevated Button");
+                                        },
+                                        child: Padding(
+                                          padding: EdgeInsets.only(
+                                            top: 15.5,
+                                            bottom: 15.5,
+                                          ),
+                                          child: Text("Starred"),
+                                        ))),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: ListView.builder(
+// scrollDirection: Axis.horizontal,
+
+                          itemCount: cryptoData.length,
+                          itemBuilder: (context, index) {
+                            final chapter = chapters[index];
+
+                            return Container(
+                              padding: EdgeInsets.fromLTRB(20, 10, 16, 0),
+                              height: 100,
+                              width: double.maxFinite,
+                              child: Card(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                elevation: 5,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context)
+                                        .push(MaterialPageRoute(
+                                      builder: (context) =>
+                                          ChapterPage(chapter: chapter),
+                                    ));
+                                  },
+                                  child: Container(
+                                    child: Padding(
+                                      padding: EdgeInsets.all(7),
+                                      child: Stack(children: <Widget>[
+                                        Align(
+                                          alignment: Alignment.centerRight,
+                                          child: Stack(
+                                            children: <Widget>[
+                                              Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 5, top: 5),
+                                                  child: Column(
+                                                    children: <Widget>[
+                                                      Row(
+                                                        children: <Widget>[
+                                                          cryptoIcon(cryptoData[
+                                                              index]),
+                                                          SizedBox(
+                                                            height: 10,
+                                                          ),
+                                                          // Spacer(),
+                                                          cryptoChange(
+                                                              cryptoData[
+                                                                  index]),
+                                                          SizedBox(
+                                                            width: 10,
+                                                          ),
+                                                          SizedBox(
+                                                            width: 20,
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ))
+                                            ],
+                                          ),
+                                        )
+                                      ]),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            );
+                          }),
+                    ),
+                  ],
+                ),
+              )
+            ])));
+  }
+
+  Widget cryptoIcon(data) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 0),
+      child: Align(
+          alignment: Alignment.centerLeft,
+          child: Image(
+            image: AssetImage('${data['image']}'),
+          )),
+    );
+  }
+
+  Widget cryptoChange(data) {
+    return Padding(
+      padding: EdgeInsets.only(left: 50),
+      child: SizedBox(
+        width: 200,
+        child: RichText(
+          text: TextSpan(
+            text: '${data['change']}',
+            style: TextStyle(
+                fontFamily: "Raleway",
+                fontWeight: FontWeight.w900,
+                color: Color.fromARGB(255, 4, 35, 93),
+                fontSize: 14),
+            children: <TextSpan>[
+              TextSpan(
+                  text: '\n${data['changeValue']}',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 4, 35, 93),
+                    fontSize: 12,
+                    fontFamily: "Raleway",
+                    fontWeight: FontWeight.w500,
+                  )),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+//--------------------------------------------------------------MAIN 3---------------------------------------------------------------------------
+
+class _Main3State extends State<Main3> {
+  var cryptoData = CryptoData2.getData;
+  List<Chapter> chapters = [
+    const Chapter(subject: [
+      'Metabolic response to injury',
+      'Shock',
+      'Blood and blood components',
+      'Burns',
+      'Wound healing and wound care',
+      'Surgical infections',
+      'Surgical Audit and Research',
+      'Ethics',
+      'Investigation of surgical patient',
+      'Pre, intra and post- operative management.',
+      'Anaesthesia and pain management',
+      'Nutrition and fluid therapy',
+      'Transplantation',
+      'Basic Surgical Skills',
+      'Biohazard disposal',
+      'Minimally invasive General Surgery',
+      'Trauma',
+      'Skin and subcutaneous tissue',
+      'Developmental anomalies of face, mouth and jaws',
+      'Oropharyngeal cancer',
+      'Disorders of salivary glands',
+      'Endocrine General Surgery: Thyroid and parathyroid',
+      'Adrenal glands',
+      'Pancreas',
+      'Breast',
+      'Cardio-thoracic General Surgery- Chest - Heart and Lungs',
+      'Vascular diseases',
+      'Abdomen',
+      'Urinary System ',
+      'Penis, Testis and scrotum'
+    ], chapter: [
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter'
+    ], number: 28, topic: 'General Surgery'),
+    const Chapter(subject: [
+      'Visual Acuity Assessment',
+      'Lids and Adnexa, Orbit',
+      'Conjunctiva',
+      'Corneas',
+      'Sclera',
+      'Iris and Anterior chamber',
+      'Lens',
+      'Retina & optic Nerve',
+      'Miscellaneous'
+    ], chapter: [
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+    ], number: 9, topic: 'Opthalmology'),
+    const Chapter(subject: [
+      'Anatomy and Physiology of ear, nose, throat, head & neck',
+      'Clinical Skills',
+      'Diagnostic and Therapeutic procedures in ENT',
+      'Management of diseases of ear, nose & throat'
+    ], chapter: [
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+    ], number: 4, topic: 'Otorhinolaryngology'),
+    const Chapter(subject: [
+      'Demographic and Vital Statistics',
+      'Anatomy of the female reproductive tract (Basic anatomy and embryology)',
+      'Physiology of conception ',
+      'Development of the fetus and the placenta ',
+      'Preconception counselling',
+      'Diagnosis of pregnancy',
+      'Maternal Changes in pregnancy',
+      'Antenatal Care',
+      'Complications in early pregnancy',
+      'Antepartum haemorrhage',
+      'Multiple pregnancies',
+      'Medical Disorders in pregnancy',
+      'Labour ',
+      'Abnormal Lie and Presentation; Maternal Pelvis',
+      'Operative obstetrics',
+      'Complications of the third stage',
+      'Lactation',
+      'Care of the new born ',
+      'Normal and abnormal puerperium.',
+      'Medical termination of pregnancy',
+      'Contraception',
+      'Vaginal discharge',
+      'Normal and abnormal puberty',
+      'Abnormal uterine bleeding ',
+      'Amenorrhea',
+      'Genital injuries and fistulae ',
+      'Genital infections ',
+      'Infertility ',
+      'Uterine fibroids ',
+      'PCOS and hirsutism ',
+      'Uterine prolapse ',
+      'Menopause ',
+      'Benign, Pre-malignant (CIN) and Malignant Lesions of the Cervix',
+      'Benign and malignant diseases of the uterus and the ovaries',
+      'Obstetrics & Gynecological skills - I',
+      'Obstetrics & Gynecological skills - II',
+      'Obstetrics & Gynecological skills - III '
+    ], chapter: [
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter'
+    ], number: 35, topic: 'Obstetrics and Gynaecology'),
+    const Chapter(subject: [
+      'Skeletal Trauma, Poly trauma',
+      'Fractures',
+      'Musculoskeletal Infection ',
+      'Skeletal Tuberculosis ',
+      'Rheumatoid Arthritis and associated inlammatory disorders',
+      'Degenerative disorders ',
+      'Metabolic bone disorders ',
+      'Poliomyelitis',
+      'Bone Tumors ',
+      'Peripheral nerve injuries',
+      'Congenital lesions',
+      'Procedural Skills ',
+      'Counselling Skills '
+    ], chapter: [
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+    ], number: 13, topic: 'Orthopedics'),
+    const Chapter(subject: [
+      'Anaesthesiology as a specialty',
+      'Cardiopulmonary resuscitation',
+      'Preoperative evaluation and medication',
+      'General Anaesthesia',
+      'Regional anaesthesia',
+      'Post-anaesthesia recovery',
+      'Intensive Care Management',
+      'Pain and its management',
+      'Fluids',
+      'Patient safety'
+    ], chapter: [
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+    ], number: 10, topic: 'Anaesthesiology'),
+    const Chapter(subject: [
+      'Radiological investigations and Radiation safety',
+    ], chapter: [
+      'Chapter',
+    ], number: 1, topic: 'Radiodiagnosis'),
+    const Chapter(subject: [
+      'Principles of Radiation Oncology (Radiotherapy)',
+      'Radiation Protection',
+      'Radiobiology & Chemoradiation',
+      'Radiation Treatment Delivery & outcome',
+      'Cancer Prevention & Registries'
+    ], chapter: [
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+    ], number: 5, topic: 'Radiotherapy'),
+    const Chapter(subject: [
+      'Dental Caries',
+      'Edentulous state',
+      'Malocclusion',
+      'Oral cancer',
+      'Periodontal disease'
+    ], chapter: [
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+      'Chapter',
+    ], number: 5, topic: 'Dentistry'),
+  ];
+  String dropdownValue = '         Third       ';
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+            backgroundColor: Color.fromARGB(255, 245, 244, 255),
+            bottomNavigationBar: new Theme(
+              data: Theme.of(context).copyWith(
+                  // sets the background color of the `BottomNavigationBar`
+                  canvasColor: Color.fromARGB(255, 4, 35, 93),
+                  // sets the active color of the `BottomNavigationBar` if `Brightness` is light
+                  primaryColor: Colors.red,
+                  textTheme: Theme.of(context).textTheme.copyWith(
+                      caption: new TextStyle(
+                          color: Colors
+                              .yellow))), // sets the inactive color of the `BottomNavigationBar`
+              child: new BottomNavigationBar(
+                showSelectedLabels: false,
+                showUnselectedLabels: false,
+                type: BottomNavigationBarType.fixed,
+                currentIndex: 0,
+                items: [
+                  BottomNavigationBarItem(
+                    icon: Image(
+                      image: AssetImage("assets/images/openbook.png"),
+                    ),
+                    label: " ",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Image(
+                      image: AssetImage("assets/images/firstaid.png"),
+                    ),
+                    label: "aid",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Image(
+                      image: AssetImage("assets/images/house.png"),
+                    ),
+                    label: "Home",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Image(
+                      image: AssetImage("assets/images/screen.png"),
+                    ),
+                    label: "screen",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Image(
+                      image: AssetImage("assets/images/question.png"),
+                    ),
+                    label: "Help",
+                  ),
+                ],
+              ),
+            ),
+            body: Stack(fit: StackFit.expand, children: [
+              Container(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(left: 20, top: 25),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              GestureDetector(
+                                child: Image(
+                                  image: AssetImage(
+                                      "assets/images/backbutton.png"),
+                                ),
+                                onTap: () {
+                                  Navigator.pushNamed(context, '/Started');
+                                },
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(15, 0, 195, 0),
+                                child: Text(
+                                  "Courses",
+                                  style: TextStyle(
+                                    fontFamily: "Raleway",
+                                    fontSize: 24.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color.fromARGB(255, 4, 35, 93),
+                                  ),
+                                ),
+                              ),
+                              Flexible(
+                                child: Padding(
+                                  padding: EdgeInsets.only(right: 16.3),
+                                  child: Align(
+                                    alignment: Alignment.centerRight,
+                                    child: Image(
+                                      image: AssetImage(
+                                          "assets/images/profile.png"),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    right: 30, top: 20, bottom: 10),
+                                child: DecoratedBox(
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(colors: [
+                                        Color.fromARGB(255, 55, 213, 214),
+                                        Color.fromARGB(255, 94, 41, 159),
+                                        //add more colors
+                                      ]),
+                                      borderRadius: BorderRadius.circular(40),
+                                    ),
+                                    child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          primary: Colors.transparent,
+                                          onSurface: Colors.transparent,
+                                          shadowColor: Colors.transparent,
+                                          //make color or elevated button transparent
+                                        ),
+                                        onPressed: () {
+                                          print("You pressed Elevated Button");
+                                        },
+                                        child: Padding(
+                                          padding: EdgeInsets.only(
+                                            top: 15.5,
+                                            bottom: 15.5,
+                                          ),
+                                          child: Text("All Courses"),
+                                        ))),
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.only(
+                                      right: 30, top: 20, bottom: 10),
+                                  child: DecoratedBox(
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(colors: [
+                                        Color.fromARGB(255, 55, 213, 214),
+                                        Color.fromARGB(255, 94, 41, 159),
+                                        //add more colors
+                                      ]),
+                                      borderRadius: BorderRadius.circular(40),
+                                    ),
+                                    child: DropdownButtonHideUnderline(
+                                      child: DropdownButton<String>(
+                                        value: dropdownValue,
+                                        elevation: 16,
+                                        icon: Visibility(
+                                            visible: false,
+                                            child: Icon(Icons.arrow_downward)),
+                                        iconSize: 24,
+                                        style: const TextStyle(
+                                            color: Colors.deepPurple),
+                                        underline: Container(
+                                          height: 2,
+                                          color: Colors.deepPurpleAccent,
+                                        ),
+                                        onChanged: (String? newValue) {
+                                          if (newValue != dropdownValue) {
+                                            switch (newValue) {
+                                              case '          First       ':
+                                                Navigator.pushNamed(
+                                                    context, '/Main1');
+                                                break;
+                                              case '       Second       ':
+                                                Navigator.pushNamed(
+                                                    context, '/Main2');
+                                                break;
+                                              case '         Third       ':
+                                                Navigator.pushNamed(
+                                                    context, '/Main3');
+                                                break;
+                                            }
+                                          }
+                                          setState(() {
+                                            dropdownValue = newValue!;
+                                          });
+                                        },
+                                        items: <String>[
+                                          '          First       ',
+                                          '       Second       ',
+                                          '         Third       ',
+                                        ].map<DropdownMenuItem<String>>(
+                                            (String value) {
+                                          if (value == dropdownValue) {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Padding(
+                                                padding: EdgeInsets.only(
+                                                  top: 0,
+                                                  bottom: 0,
+                                                ),
+                                                child: Text(
+                                                  value,
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                              ),
+                                            );
+                                          } else {
+                                            return DropdownMenuItem<String>(
+                                              value: value,
+                                              child: Padding(
+                                                padding: EdgeInsets.only(
+                                                  top: 0,
+                                                  bottom: 0,
+                                                ),
+                                                child: Text(
+                                                  value,
+                                                  style: TextStyle(
+                                                      color: Colors.black),
+                                                ),
+                                              ),
+                                            );
+                                          }
+                                        }).toList(),
+                                      ),
+                                    ),
+                                  )),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                    right: 20, top: 20, bottom: 10),
+                                child: DecoratedBox(
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(colors: [
+                                        Color.fromARGB(255, 55, 213, 214),
+                                        Color.fromARGB(255, 94, 41, 159),
+                                        //add more colors
+                                      ]),
+                                      borderRadius: BorderRadius.circular(40),
+                                    ),
+                                    child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          primary: Colors.transparent,
+                                          onSurface: Colors.transparent,
+                                          shadowColor: Colors.transparent,
+                                          //make color or elevated button transparent
+                                        ),
+                                        onPressed: () {
+                                          print("You pressed Elevated Button");
+                                        },
+                                        child: Padding(
+                                          padding: EdgeInsets.only(
+                                            top: 15.5,
+                                            bottom: 15.5,
+                                          ),
+                                          child: Text("Starred"),
+                                        ))),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: ListView.builder(
+// scrollDirection: Axis.horizontal,
+
+                          itemCount: cryptoData.length,
+                          itemBuilder: (context, index) {
+                            final chapter = chapters[index];
+
+                            return Container(
+                              padding: EdgeInsets.fromLTRB(20, 10, 16, 0),
+                              height: 100,
+                              width: double.maxFinite,
+                              child: Card(
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                elevation: 5,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context)
+                                        .push(MaterialPageRoute(
+                                      builder: (context) =>
+                                          ChapterPage(chapter: chapter),
+                                    ));
+                                  },
+                                  child: Container(
+                                    child: Padding(
+                                      padding: EdgeInsets.all(7),
+                                      child: Stack(children: <Widget>[
+                                        Align(
+                                          alignment: Alignment.centerRight,
+                                          child: Stack(
+                                            children: <Widget>[
+                                              Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 5, top: 5),
+                                                  child: Column(
+                                                    children: <Widget>[
+                                                      Row(
+                                                        children: <Widget>[
+                                                          cryptoIcon(cryptoData[
+                                                              index]),
+                                                          SizedBox(
+                                                            height: 10,
+                                                          ),
+                                                          // Spacer(),
+                                                          cryptoChange(
+                                                              cryptoData[
+                                                                  index]),
+                                                          SizedBox(
+                                                            width: 10,
+                                                          ),
+                                                          SizedBox(
+                                                            width: 20,
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ))
+                                            ],
+                                          ),
+                                        )
+                                      ]),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            );
+                          }),
+                    ),
+                  ],
+                ),
+              )
+            ])));
+  }
+
+  Widget cryptoIcon(data) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 0),
+      child: Align(
+          alignment: Alignment.centerLeft,
+          child: Image(
+            image: AssetImage('${data['image']}'),
+          )),
+    );
+  }
+
+  Widget cryptoChange(data) {
+    return Padding(
+      padding: EdgeInsets.only(left: 50),
+      child: SizedBox(
+        width: 200,
+        child: RichText(
+          text: TextSpan(
+            text: '${data['change']}',
+            style: TextStyle(
+                fontFamily: "Raleway",
+                fontWeight: FontWeight.w900,
+                color: Color.fromARGB(255, 4, 35, 93),
+                fontSize: 14),
+            children: <TextSpan>[
+              TextSpan(
+                  text: '\n${data['changeValue']}',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 4, 35, 93),
+                    fontSize: 12,
+                    fontFamily: "Raleway",
+                    fontWeight: FontWeight.w500,
+                  )),
+            ],
+          ),
         ),
       ),
     );

@@ -5,23 +5,38 @@ class CryptoData {
   static final getData = [
     {
       'image': "assets/images/card1.png",
-      'change': 'Community Medicine',
-      'changeValue': '14 Chapters',
+      'change': 'Human Anatomy',
+      'changeValue': '51 Chapters',
     },
     {
       'image': "assets/images/card1.png",
-      'change': 'Pathology',
-      'changeValue': '9 Chapters',
+      'change': 'Physiology',
+      'changeValue': '41 Chapters',
+    },
+    {
+      'image': "assets/images/card1.png",
+      'change': 'Biochemistry',
+      'changeValue': '11 Chapters',
     },
     {
       'image': "assets/images/card1.png",
       'change': 'Pharmacology',
-      'changeValue': '3 Chapters',
+      'changeValue': '5 Chapters',
+    },
+    {
+      'image': "assets/images/card1.png",
+      'change': 'Pathology',
+      'changeValue': '35 Chapters',
     },
     {
       'image': "assets/images/card1.png",
       'change': 'Microbiology',
-      'changeValue': '17 Chapters',
+      'changeValue': '8 Chapters',
+    },
+    {
+      'image': "assets/images/card1.png",
+      'change': 'Forensic Medicine & Toxicology',
+      'changeValue': '13 Chapters',
     },
   ];
 }
