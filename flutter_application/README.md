@@ -1,4 +1,4 @@
-## Revisable App
+# Revisable App
 
 Revisable is the best place for Medical students for an efficient learning process.
 
@@ -18,7 +18,7 @@ a loading screen
 
 2 pages after user has signed in, here each page is connected to their respective chapter
   
-# Getting Started
+## Getting Started
 
 This project is a starting point for a Flutter application.
 
