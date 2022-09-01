@@ -31,8 +31,8 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           unselectedWidgetColor: Colors.white,
         ),
-        //home: MyHomePage(title: 'Revisable'),
-        home: Main1(),
+        home: MyHomePage(title: 'Revisable'),
+        //home: Main1(),
         routes: {
           '/Signup1': (context) => Signup1(),
           '/Signup2': (context) => Signup2(),
