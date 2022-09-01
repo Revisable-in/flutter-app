@@ -1,9 +1,11 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter_application/chapter.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_application/provider/google_sign_in.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'firebase_options.dart';
 import 'crypto_data.dart';
 import 'topic1.dart';
@@ -31,8 +33,8 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           unselectedWidgetColor: Colors.white,
         ),
-        home: MyHomePage(title: 'Revisable'),
-        //home: Main1(),
+        //home: MyHomePage(title: 'Revisable'),
+        home: Main1(),
         routes: {
           '/Signup1': (context) => Signup1(),
           '/Signup2': (context) => Signup2(),
@@ -3667,6 +3669,7 @@ class _Main3State extends State<Main3> {
 //------------------------------------------------------------------SLIDES----------------------------------------------------------
 
 class _SlidesState extends State<Slides> {
+  int activeIndex = 0;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -3761,41 +3764,291 @@ class _SlidesState extends State<Slides> {
                         ],
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 120),
-                      child: FlipCard(
-                        direction: FlipDirection.HORIZONTAL,
-                        front: Container(
-                          decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 4, 35, 94),
-                              shape: BoxShape.rectangle,
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(25.0),
-                                  bottomRight: Radius.circular(25.0),
-                                  bottomLeft: Radius.circular(25.0),
-                                  topRight: Radius.circular(25.0))),
-                          width: 300,
-                          height: 400,
-                          // color: Colors.red,
+                    //code for image carousel with progress bar
+                    // Padding(
+                    //   padding: EdgeInsets.only(top: 20),
+                    //   child: Column(
+                    //     children: [
+                    //       CarouselSlider(
+                    //         options: CarouselOptions(
+                    //           height: 300.0,
+                    //           autoPlay: true,
+                    //           autoPlayInterval: Duration(seconds: 3),
+                    //           autoPlayAnimationDuration:
+                    //               Duration(milliseconds: 800),
+                    //           autoPlayCurve: Curves.fastOutSlowIn,
+                    //           pauseAutoPlayOnTouch: true,
+                    //           aspectRatio: 2.0,
+                    //           onPageChanged: (index, reason) {
+                    //             setState(() {
+                    //               _current = index;
+                    //             });
+                    //           },
+                    //         ),
+                    //         items: imgList.map((item) => Container(
+                    //               child: Center(
+                    //                   child: Image.asset(item,
+                    //                       fit: BoxFit.cover, width: 1000)),
+                    //             )).toList(),
+                    //       ),
+                    //       Row(
+                    //         mainAxisAlignment: MainAxisAlignment.center,
+                    //         children: imgList.map((url) {
+                    //           int index = imgList.indexOf(url);
+                    //           return Container(
+                    //             width: 8.0,
+                    //             height: 8.0,
+                    //             margin: EdgeInsets.symmetric(
+                    //                 vertical: 10.0, horizontal: 2.0),
+                    //             decoration: BoxDecoration(
+                    //               shape: BoxShape.circle,
+                    //               color: _current == index
+                    //                   ? Color.fromARGB(255, 4, 35, 93)
+                    //                   : Color.fromARGB(255, 4, 35, 93)
+                    //                       .withOpacity(0.4),
+                    //             ),
+                    //           );
+                    //         }).toList(),
+                    //       ),
+                    //     ],
+                    //   ),
+                    // ),
+
+                    Column(
+                      children: [
+                        Padding(padding: EdgeInsets.only(top: 20)),
+                        buildIndicator(),
+                        CarouselSlider(
+                          options: CarouselOptions(
+                            enlargeCenterPage: false,
+                            height: 500,
+                            onPageChanged: (index, reason) =>
+                                setState(() => activeIndex = index),
+                          ),
+                          items: [
+                            Padding(
+                              padding: EdgeInsets.only(top: 30),
+                              child: FlipCard(
+                                direction: FlipDirection.HORIZONTAL,
+                                front: Container(
+                                  decoration: BoxDecoration(
+                                      color: Color.fromARGB(255, 4, 35, 94),
+                                      shape: BoxShape.rectangle,
+                                      borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(25.0),
+                                          bottomRight: Radius.circular(25.0),
+                                          bottomLeft: Radius.circular(25.0),
+                                          topRight: Radius.circular(25.0))),
+                                  width: 300,
+                                  height: 400,
+                                  // color: Colors.red,
+                                ),
+                                back: Container(
+                                  decoration: BoxDecoration(
+                                      color: Color.fromARGB(255, 4, 35, 94),
+                                      shape: BoxShape.rectangle,
+                                      borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(25.0),
+                                          bottomRight: Radius.circular(25.0),
+                                          bottomLeft: Radius.circular(25.0),
+                                          topRight: Radius.circular(25.0))),
+                                  width: 300,
+                                  height: 400,
+                                  // color: Colors.red,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(top: 30),
+                              child: FlipCard(
+                                direction: FlipDirection.HORIZONTAL,
+                                front: Container(
+                                  decoration: BoxDecoration(
+                                      color: Color.fromARGB(255, 4, 35, 94),
+                                      shape: BoxShape.rectangle,
+                                      borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(25.0),
+                                          bottomRight: Radius.circular(25.0),
+                                          bottomLeft: Radius.circular(25.0),
+                                          topRight: Radius.circular(25.0))),
+                                  width: 300,
+                                  height: 400,
+                                  // color: Colors.red,
+                                ),
+                                back: Container(
+                                  decoration: BoxDecoration(
+                                      color: Color.fromARGB(255, 4, 35, 94),
+                                      shape: BoxShape.rectangle,
+                                      borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(25.0),
+                                          bottomRight: Radius.circular(25.0),
+                                          bottomLeft: Radius.circular(25.0),
+                                          topRight: Radius.circular(25.0))),
+                                  width: 300,
+                                  height: 400,
+                                  // color: Colors.red,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(top: 30),
+                              child: FlipCard(
+                                direction: FlipDirection.HORIZONTAL,
+                                front: Container(
+                                  decoration: BoxDecoration(
+                                      color: Color.fromARGB(255, 4, 35, 94),
+                                      shape: BoxShape.rectangle,
+                                      borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(25.0),
+                                          bottomRight: Radius.circular(25.0),
+                                          bottomLeft: Radius.circular(25.0),
+                                          topRight: Radius.circular(25.0))),
+                                  width: 300,
+                                  height: 400,
+                                  // color: Colors.red,
+                                ),
+                                back: Container(
+                                  decoration: BoxDecoration(
+                                      color: Color.fromARGB(255, 4, 35, 94),
+                                      shape: BoxShape.rectangle,
+                                      borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(25.0),
+                                          bottomRight: Radius.circular(25.0),
+                                          bottomLeft: Radius.circular(25.0),
+                                          topRight: Radius.circular(25.0))),
+                                  width: 300,
+                                  height: 400,
+                                  // color: Colors.red,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                        back: Container(
-                          decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 4, 35, 94),
-                              shape: BoxShape.rectangle,
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(25.0),
-                                  bottomRight: Radius.circular(25.0),
-                                  bottomLeft: Radius.circular(25.0),
-                                  topRight: Radius.circular(25.0))),
-                          width: 300,
-                          height: 400,
-                          // color: Colors.red,
-                        ),
-                      ),
+                      ],
                     ),
+                    Row(
+                      children: <Widget>[
+                        Padding(
+                          padding: EdgeInsets.only(left: 20, top: 60),
+                          child: GestureDetector(
+                            child: Container(
+                              child: Image(
+                                image: AssetImage("assets/images/perfect.png"),
+                              ),
+                              decoration: BoxDecoration(
+                                  color: Colors.green,
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(15.0),
+                                      bottomRight: Radius.circular(15.0),
+                                      bottomLeft: Radius.circular(15.0),
+                                      topRight: Radius.circular(15.0))),
+                              width: 79,
+                              height: 79,
+                              // color: Colors.red,
+                            ),
+                            onTap: () {
+                              Navigator.pushNamed(context, '/FirstAid');
+                            },
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 20, top: 60),
+                          child: GestureDetector(
+                            child: Container(
+                              child: Column(
+                                children: [
+                                  Image(
+                                    image: AssetImage("assets/images/good.png"),
+                                  ),
+                                  // Text(
+                                  //   "Good",
+                                  //   style: TextStyle(
+                                  //       color: Colors.white,
+                                  //       fontSize: 14,
+                                  //       fontFamily: "Raleway",
+                                  //       fontWeight: FontWeight.w500),
+                                  // ),
+                                ],
+                              ),
+
+                              decoration: BoxDecoration(
+                                  color: Colors.lightGreen,
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(15.0),
+                                      bottomRight: Radius.circular(15.0),
+                                      bottomLeft: Radius.circular(15.0),
+                                      topRight: Radius.circular(15.0))),
+                              width: 79,
+                              height: 79,
+                              // color: Colors.red,
+                            ),
+                            onTap: () {
+                              Navigator.pushNamed(context, '/Home');
+                            },
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 20, top: 60),
+                          child: GestureDetector(
+                            child: Container(
+                              child: Image(
+                                image: AssetImage("assets/images/ok.png"),
+                              ),
+                              decoration: BoxDecoration(
+                                  color: Color.fromARGB(255, 255, 249, 62),
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(15.0),
+                                      bottomRight: Radius.circular(15.0),
+                                      bottomLeft: Radius.circular(15.0),
+                                      topRight: Radius.circular(15.0))),
+                              width: 79,
+                              height: 79,
+                              // color: Colors.red,
+                            ),
+                            onTap: () {
+                              Navigator.pushNamed(context, '/Screen');
+                            },
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 20, top: 60),
+                          child: GestureDetector(
+                            child: Container(
+                              child: Image(
+                                image: AssetImage("assets/images/bad.png"),
+                              ),
+                              decoration: BoxDecoration(
+                                  color: Colors.red,
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(15.0),
+                                      bottomRight: Radius.circular(15.0),
+                                      bottomLeft: Radius.circular(15.0),
+                                      topRight: Radius.circular(15.0))),
+                              width: 79,
+                              height: 79,
+                              // color: Colors.red,
+                            ),
+                            onTap: () {
+                              Navigator.pushNamed(context, '/Help');
+                            },
+                          ),
+                        ),
+                      ],
+                    )
                   ],
                 ),
               )
             ])));
   }
+
+  Widget buildIndicator() => AnimatedSmoothIndicator(
+        activeIndex: activeIndex,
+        count: 3,
+        effect: SlideEffect(
+          dotWidth: 20,
+          dotHeight: 20,
+          activeDotColor: Colors.red,
+          dotColor: Colors.black12,
+        ),
+      );
 }
