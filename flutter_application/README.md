@@ -1,7 +1,23 @@
-# flutter_application
+# Revisable App
 
-A new Flutter project.
+Revisable is the best place for Medical students for an efficient learning process.
 
+Tech Stacks used : Flutter, Dart
+
+The app consists of :-
+
+a loading screen
+
+1 home page that gives option to sign up or login
+
+4 signup pages
+
+1 login page
+
+1 get started page 
+
+2 pages after user has signed in, here each page is connected to their respective chapter
+  
 ## Getting Started
 
 This project is a starting point for a Flutter application.
