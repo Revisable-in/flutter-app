@@ -160,10 +160,10 @@ class ChapterPage extends StatelessWidget {
                               elevation: 5,
                               child: GestureDetector(
                                 onTap: () {
-                                  Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) =>
-                                        ChapterPage(chapter: chapter),
-                                  ));
+                                  Navigator.push(
+                                      context,
+                                      new MaterialPageRoute(
+                                          builder: (context) => new Slides()));
                                 },
                                 child: Container(
                                   child: Padding(

@@ -10,7 +10,7 @@ import 'firebase_options.dart';
 import 'crypto_data.dart';
 import 'topic1.dart';
 import 'topic2.dart';
-import 'slides.dart';
+
 import 'package:flutter/material.dart';
 
 void main() async {
@@ -33,8 +33,8 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           unselectedWidgetColor: Colors.white,
         ),
-        //home: MyHomePage(title: 'Revisable'),
-        home: Main1(),
+        home: MyHomePage(title: 'Revisable'),
+        //home: Main1(),
         routes: {
           '/Signup1': (context) => Signup1(),
           '/Signup2': (context) => Signup2(),
@@ -1593,7 +1593,7 @@ class Started extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/Slides');
+                      Navigator.pushNamed(context, '/Main1');
                     },
                     style: ElevatedButton.styleFrom(
                       // side: BorderSide(color: Colors.white),
@@ -3629,10 +3629,11 @@ class _Main3State extends State<Main3> {
     return Padding(
       padding: const EdgeInsets.only(left: 0),
       child: Align(
-          alignment: Alignment.centerLeft,
-          child: Image(
-            image: AssetImage('${data['image']}'),
-          )),
+        alignment: Alignment.centerLeft,
+        child: Image(
+          image: AssetImage('${data['image']}'),
+        ),
+      ),
     );
   }
 
