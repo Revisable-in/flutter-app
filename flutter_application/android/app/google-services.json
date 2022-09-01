@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "475241660611",
+    "project_id": "revisable-46563",
+    "storage_bucket": "revisable-46563.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:475241660611:android:c314420c007dbd08f16276",
+        "android_client_info": {
+          "package_name": "com.revisable.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "475241660611-f7uts3c9pddp8h7bvf6p6jidq40suc96.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.revisable.app",
+            "certificate_hash": "e1f42ef54927d1df09d6bbdb1c86cdef8439bc6b"
+          }
+        },
+        {
+          "client_id": "475241660611-63245tlgdle2om2b56005mm8631k0nnf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYWTX0DhBpk6a4f_SXSyQXabjwuQscuCQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "475241660611-63245tlgdle2om2b56005mm8631k0nnf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "475241660611-8v7o05skeh5o5hls22fvo5882etta6vk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterApplication"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

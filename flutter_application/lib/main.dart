@@ -1,37 +1,51 @@
+import 'package:flip_card/flip_card.dart';
 import 'package:flutter_application/chapter.dart';
-
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_application/provider/google_sign_in.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
+import 'firebase_options.dart';
 import 'crypto_data.dart';
 import 'topic1.dart';
 import 'topic2.dart';
+import 'slides.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Revisable',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        unselectedWidgetColor: Colors.white,
+    return ChangeNotifierProvider(
+      create: (context) => GoogleSignInProvider(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Revisable',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          unselectedWidgetColor: Colors.white,
+        ),
+        //home: MyHomePage(title: 'Revisable'),
+        home: Main1(),
+        routes: {
+          '/Signup1': (context) => Signup1(),
+          '/Signup2': (context) => Signup2(),
+          '/Signup3': (context) => Signup3(),
+          '/Signup4': (context) => Signup4(),
+          '/Started': (context) => Started(),
+          '/Login': (context) => Login(),
+          '/Main1': (context) => Main1(),
+          '/Main2': (context) => Main2(),
+          '/Main3': (context) => Main3(),
+          '/Slides': (context) => Slides(),
+        },
       ),
-      // home: MyHomePage(title: 'Revisable'),
-      home: Main1(),
-      routes: {
-        '/Signup1': (context) => Signup1(),
-        '/Signup2': (context) => Signup2(),
-        '/Signup3': (context) => Signup3(),
-        '/Signup4': (context) => Signup4(),
-        '/Started': (context) => Started(),
-        '/Login': (context) => Login(),
-        '/Main1': (context) => Main1(),
-        '/Main2': (context) => Main2(),
-        '/Main3': (context) => Main3(),
-      },
     );
   }
 }
@@ -105,6 +119,12 @@ class Main3 extends StatefulWidget {
 
   @override
   State<Main3> createState() => _Main3State();
+}
+
+class Slides extends StatefulWidget {
+  const Slides({Key? key}) : super(key: key);
+  @override
+  State<Slides> createState() => _SlidesState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -506,6 +526,61 @@ class _Signup1State extends State<Signup1> {
                     //     bottom: BorderSide(color: Colors.white),
                     //   ),
                     // ),
+                  ),
+                  // Container(
+                  //   child: ElevatedButton.icon(
+                  //     style: ElevatedButton.styleFrom(
+                  //       primary: Colors.white,
+                  //       onPrimary: Colors.black,
+                  //       minimumSize: Size(double.infinity, 50),
+                  //     ),
+                  //     icon: FaIcon(FontAwesomeIcons.google, color: Colors.red),
+                  //     label: Text('Sign Up with Google'),
+                  //     onPressed: () {
+                  //       final provider = Provider.of<GoogleSignInProvider>(
+                  //           context,
+                  //           listen: false);
+                  //       provider.googleLogin();
+                  //     },
+                  //   ),
+                  // ),
+                  Padding(
+                    padding: EdgeInsets.only(right: 30, top: 20, bottom: 10),
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(colors: [
+                          Color.fromARGB(255, 55, 213, 214),
+                          Color.fromARGB(255, 94, 41, 159),
+                          //add more colors
+                        ]),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: ElevatedButton.icon(
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.transparent,
+                          onSurface: Colors.transparent,
+                          shadowColor: Colors.transparent,
+                          //make color or elevated button transparent
+                        ),
+                        icon:
+                            FaIcon(FontAwesomeIcons.google, color: Colors.red),
+                        label: Text('Sign Up with Google'),
+                        onPressed: () {
+                          final provider = Provider.of<GoogleSignInProvider>(
+                              context,
+                              listen: false);
+                          provider.googleLogin();
+                        },
+                        //           child: Padding(
+                        //             padding: EdgeInsets.only(
+                        //               top: 15.5,
+                        //               bottom: 15.5,
+                        //             ),
+                        //             child: Text("All Courses"),
+                        //           ))),
+                        // ),
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -1516,7 +1591,7 @@ class Started extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, '/Main1');
+                      Navigator.pushNamed(context, '/Slides');
                     },
                     style: ElevatedButton.styleFrom(
                       // side: BorderSide(color: Colors.white),
@@ -3017,7 +3092,7 @@ class _Main3State extends State<Main3> {
       'Chapter',
       'Chapter',
       'Chapter',
-      'Chapter'
+      'Chapter',
     ], number: 28, topic: 'General Surgery'),
     const Chapter(subject: [
       'Visual Acuity Assessment',
@@ -3586,5 +3661,141 @@ class _Main3State extends State<Main3> {
         ),
       ),
     );
+  }
+}
+
+//------------------------------------------------------------------SLIDES----------------------------------------------------------
+
+class _SlidesState extends State<Slides> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+            backgroundColor: Color.fromARGB(255, 245, 244, 255),
+            bottomNavigationBar: new Theme(
+              data: Theme.of(context).copyWith(
+                  // sets the background color of the `BottomNavigationBar`
+                  canvasColor: Color.fromARGB(255, 4, 35, 93),
+                  // sets the active color of the `BottomNavigationBar` if `Brightness` is light
+                  primaryColor: Colors.red,
+                  textTheme: Theme.of(context).textTheme.copyWith(
+                      caption: new TextStyle(
+                          color: Colors
+                              .yellow))), // sets the inactive color of the `BottomNavigationBar`
+              child: new BottomNavigationBar(
+                showSelectedLabels: false,
+                showUnselectedLabels: false,
+                type: BottomNavigationBarType.fixed,
+                currentIndex: 0,
+                items: [
+                  BottomNavigationBarItem(
+                    icon: Image(
+                      image: AssetImage("assets/images/openbook.png"),
+                    ),
+                    label: " ",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Image(
+                      image: AssetImage("assets/images/firstaid.png"),
+                    ),
+                    label: "aid",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Image(
+                      image: AssetImage("assets/images/house.png"),
+                    ),
+                    label: "Home",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Image(
+                      image: AssetImage("assets/images/screen.png"),
+                    ),
+                    label: "screen",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: Image(
+                      image: AssetImage("assets/images/question.png"),
+                    ),
+                    label: "Help",
+                  ),
+                ],
+              ),
+            ),
+            body: Stack(fit: StackFit.expand, children: [
+              Container(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(left: 20, top: 25),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              GestureDetector(
+                                child: Image(
+                                  image: AssetImage(
+                                      "assets/images/backbutton.png"),
+                                ),
+                                onTap: () {
+                                  Navigator.pushNamed(context, '/Started');
+                                },
+                              ),
+                              Flexible(
+                                child: Padding(
+                                  padding: EdgeInsets.only(right: 16.3),
+                                  child: Align(
+                                    alignment: Alignment.centerRight,
+                                    child: Image(
+                                      image: AssetImage(
+                                          "assets/images/profile.png"),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 120),
+                      child: FlipCard(
+                        direction: FlipDirection.HORIZONTAL,
+                        front: Container(
+                          decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 4, 35, 94),
+                              shape: BoxShape.rectangle,
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(25.0),
+                                  bottomRight: Radius.circular(25.0),
+                                  bottomLeft: Radius.circular(25.0),
+                                  topRight: Radius.circular(25.0))),
+                          width: 300,
+                          height: 400,
+                          // color: Colors.red,
+                        ),
+                        back: Container(
+                          decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 4, 35, 94),
+                              shape: BoxShape.rectangle,
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(25.0),
+                                  bottomRight: Radius.circular(25.0),
+                                  bottomLeft: Radius.circular(25.0),
+                                  topRight: Radius.circular(25.0))),
+                          width: 300,
+                          height: 400,
+                          // color: Colors.red,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ])));
   }
 }
